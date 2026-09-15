@@ -1,1 +1,403 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+    <title>¡Estás invitado! 🎉</title>
+
+    <meta
+        name="description"
+        content="Invitación especial de cumpleaños"
+    >
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@600;700;800&display=swap"
+        rel="stylesheet"
+    >
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- =========================================
+         PANTALLA DE BIENVENIDA
+    ========================================== -->
+
+    <div id="welcomeScreen" class="welcome-screen">
+
+        <div class="welcome-content">
+
+            <div class="welcome-emoji">🎉</div>
+
+            <p class="small-title">TIENES UNA INVITACIÓN</p>
+
+            <h1>
+                Una celebración<br>
+                muy especial
+            </h1>
+
+            <p class="welcome-text">
+                Prepárate para celebrar,
+                reír y pasarla increíble.
+            </p>
+
+            <button id="openInvitation" class="main-button">
+                Abrir invitación
+                <span>→</span>
+            </button>
+
+        </div>
+
+    </div>
+
+
+    <!-- =========================================
+         CONTENIDO PRINCIPAL
+    ========================================== -->
+
+    <main id="mainContent" class="hidden">
+
+
+        <!-- HERO -->
+
+        <section class="hero">
+
+            <div class="floating-decoration decoration-one">✦</div>
+            <div class="floating-decoration decoration-two">✦</div>
+            <div class="floating-decoration decoration-three">✧</div>
+
+            <div class="hero-content">
+
+                <p class="eyebrow">
+                    ESTÁS INVITADO
+                </p>
+
+                <!-- CAMBIAR NOMBRE -->
+                <h1>
+                    El cumpleaños<br>
+                    de <span>[NOMBRE]</span>
+                </h1>
+
+                <p class="hero-description">
+                    Hay momentos que merecen celebrarse
+                    junto a las personas que queremos.
+                </p>
+
+                <div class="hero-date">
+
+                    <div>
+                        <strong>[DÍA]</strong>
+                        <small>[MES]</small>
+                    </div>
+
+                    <div class="separator"></div>
+
+                    <div>
+                        <strong>[HORA]</strong>
+                        <small>HORAS</small>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- CUENTA REGRESIVA -->
+
+        <section class="countdown-section">
+
+            <p class="section-label">
+                FALTA POCO
+            </p>
+
+            <h2>
+                La celebración comienza en...
+            </h2>
+
+            <div class="countdown">
+
+                <div class="time-box">
+                    <strong id="days">00</strong>
+                    <span>DÍAS</span>
+                </div>
+
+                <div class="time-box">
+                    <strong id="hours">00</strong>
+                    <span>HORAS</span>
+                </div>
+
+                <div class="time-box">
+                    <strong id="minutes">00</strong>
+                    <span>MIN</span>
+                </div>
+
+                <div class="time-box">
+                    <strong id="seconds">00</strong>
+                    <span>SEG</span>
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- INFORMACIÓN -->
+
+        <section class="info-section">
+
+            <div class="section-heading">
+
+                <p class="section-label">
+                    GUARDA LA FECHA
+                </p>
+
+                <h2>
+                    Nos vemos ahí
+                </h2>
+
+            </div>
+
+
+            <div class="info-grid">
+
+                <article class="info-card">
+
+                    <div class="icon">📅</div>
+
+                    <div>
+                        <span>FECHA</span>
+                        <h3>[DÍA DE LA SEMANA]</h3>
+                        <p>[DÍA] de [MES] de [AÑO]</p>
+                    </div>
+
+                </article>
+
+
+                <article class="info-card">
+
+                    <div class="icon">🕐</div>
+
+                    <div>
+                        <span>HORA</span>
+                        <h3>[HORA]</h3>
+                        <p>[HORA DE FINALIZACIÓN]</p>
+                    </div>
+
+                </article>
+
+
+                <article class="info-card">
+
+                    <div class="icon">📍</div>
+
+                    <div>
+                        <span>LUGAR</span>
+                        <h3>[NOMBRE DEL LUGAR]</h3>
+                        <p>[DIRECCIÓN]</p>
+                    </div>
+
+                </article>
+
+            </div>
+
+
+            <a
+                class="location-button"
+                href="https://www.google.com/maps/search/?api=1&query=TU+UBICACION"
+                target="_blank"
+                rel="noopener"
+            >
+                📍 Ver ubicación
+            </a>
+
+        </section>
+
+
+        <!-- MENSAJE -->
+
+        <section class="message-section">
+
+            <div class="message-card">
+
+                <div class="quote-mark">“</div>
+
+                <p>
+                    No sería lo mismo celebrar este día
+                    sin las personas que forman parte
+                    de momentos importantes.
+                </p>
+
+                <strong>
+                    ¡Espero verte!
+                </strong>
+
+            </div>
+
+        </section>
+
+
+        <!-- GALERÍA -->
+
+        <section class="gallery-section">
+
+            <div class="section-heading">
+
+                <p class="section-label">
+                    RECUERDOS
+                </p>
+
+                <h2>
+                    Algunos momentos
+                </h2>
+
+            </div>
+
+
+            <div class="gallery">
+
+                <div class="photo photo-one">
+                    <img src="img/foto1.jpg" alt="Recuerdo 1">
+                </div>
+
+                <div class="photo photo-two">
+                    <img src="img/foto2.jpg" alt="Recuerdo 2">
+                </div>
+
+                <div class="photo photo-three">
+                    <img src="img/foto3.jpg" alt="Recuerdo 3">
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- CONFIRMACIÓN -->
+
+        <section class="rsvp-section">
+
+            <div class="rsvp-card">
+
+                <p class="section-label">
+                    ¿VIENES?
+                </p>
+
+                <h2>
+                    Confirma tu asistencia
+                </h2>
+
+                <p>
+                    Así podremos preparar todo
+                    para recibirte.
+                </p>
+
+                <a
+                    class="whatsapp-button"
+                    href="https://wa.me/593XXXXXXXXX?text=Hola%2C%20confirmo%20mi%20asistencia%20al%20cumplea%C3%B1os."
+                    target="_blank"
+                    rel="noopener"
+                >
+                    Confirmar por WhatsApp
+                </a>
+
+            </div>
+
+        </section>
+
+
+        <!-- SORPRESA -->
+
+        <section class="surprise-section">
+
+            <p class="section-label">
+                HAY ALGO MÁS...
+            </p>
+
+            <h2>
+                ¿Quieres descubrir
+                una sorpresa?
+            </h2>
+
+            <button id="surpriseButton" class="surprise-button">
+                ✨ Abrir sorpresa
+            </button>
+
+            <div id="surpriseContent" class="surprise-content">
+
+                <div class="surprise-icon">
+                    🎂
+                </div>
+
+                <h3>
+                    ¡Sorpresa!
+                </h3>
+
+                <p>
+                    [AQUÍ PUEDES PONER UN MENSAJE,
+                    VIDEO, FOTO O INFORMACIÓN ESPECIAL]
+                </p>
+
+            </div>
+
+        </section>
+
+
+        <!-- FINAL -->
+
+        <footer>
+
+            <div class="footer-confetti">
+                🎈 🎉 🎂 🎊 🎈
+            </div>
+
+            <h2>
+                ¡Nos vemos!
+            </h2>
+
+            <p>
+                Gracias por ser parte de este momento.
+            </p>
+
+            <small>
+                Hecho con ❤️
+            </small>
+
+        </footer>
+
+
+    </main>
+
+
+    <!-- BOTÓN DE MÚSICA -->
+
+    <button
+        id="musicButton"
+        class="music-button"
+        aria-label="Activar música"
+    >
+        🔇
+    </button>
+
+
+    <!-- AUDIO -->
+
+    <audio
+        id="backgroundMusic"
+        loop
+        preload="auto"
+    >
+        <source src="music/cumpleanos.mp3" type="audio/mpeg">
+    </audio>
+
+
+    <script src="script.js"></script>
+
+</body>
+</html>
