@@ -1,66 +1,124 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>50 años | Joel Rene Lojano Barrera</title>
+    <meta name="theme-color" content="#080808">
+
+    <title>Joel Rene Lojano Barrera | 50 años</title>
 
     <link rel="stylesheet" href="style.css">
 </head>
 
-<body>
+<body class="no-scroll">
 
-    <!-- PANTALLA DE INICIO -->
+    <!-- =====================================
+         PANTALLA DE BIENVENIDA
+    ====================================== -->
+
     <div id="welcomeScreen" class="welcome-screen">
+
+        <!-- Número decorativo -->
+        <div class="welcome-background-number">
+            50
+        </div>
+
+        <!-- Brillo central -->
+        <div class="welcome-glow"></div>
 
         <div class="welcome-content">
 
-            <div class="gold-line"></div>
+            <div class="welcome-top-line"></div>
 
-            <p class="small-title">ESTÁS INVITADO A CELEBRAR</p>
+            <p class="welcome-eyebrow">
+                CELEBRACIÓN ESPECIAL
+            </p>
 
-            <h1>Los 50 años de</h1>
+            <div class="welcome-name">
 
-            <h2>Joel Rene<br>Lojano Barrera</h2>
+                <span>JOEL RENE</span>
 
-            <p class="welcome-text">
-                Una ocasión especial merece una celebración especial.
+                <strong>LOJANO BARRERA</strong>
+
+            </div>
+
+            <div class="welcome-age">
+
+                <span>50</span>
+
+                <small>AÑOS</small>
+
+            </div>
+
+            <div class="welcome-divider"></div>
+
+            <p class="welcome-message">
+                Una noche para celebrar<br>
+                una vida llena de historias.
             </p>
 
             <button id="openInvitation">
-                ABRIR INVITACIÓN
+
+                <span>ABRIR INVITACIÓN</span>
+
+                <div class="button-arrow">
+                    →
+                </div>
+
             </button>
 
-            <div class="gold-line"></div>
+            <p class="welcome-footer">
+                CUENCA · ECUADOR
+            </p>
+
+            <div class="welcome-bottom-line"></div>
 
         </div>
 
     </div>
 
 
-    <!-- INVITACIÓN -->
+    <!-- =====================================
+         INVITACIÓN
+    ====================================== -->
+
     <main id="invitation" class="invitation">
 
-        <!-- PORTADA -->
+
+        <!-- =================================
+             PORTADA
+        ================================== -->
+
         <section class="hero">
 
             <div class="hero-overlay"></div>
 
             <div class="hero-content">
 
-                <p class="eyebrow">CELEBRACIÓN ESPECIAL</p>
+                <p class="eyebrow">
+                    CELEBRACIÓN ESPECIAL
+                </p>
 
-                <h1>50</h1>
+                <div class="hero-number">
+                    50
+                </div>
 
-                <span class="years">AÑOS</span>
+                <p class="hero-years">
+                    AÑOS
+                </p>
 
                 <div class="separator"></div>
 
-                <h2>Joel Rene<br>Lojano Barrera</h2>
+                <h1>
+                    Joel Rene<br>
+                    Lojano Barrera
+                </h1>
 
-                <p>
-                    Celebremos juntos este momento tan especial.
+                <p class="hero-description">
+                    Celebremos juntos este momento
+                    tan especial.
                 </p>
 
             </div>
@@ -68,102 +126,172 @@
         </section>
 
 
-        <!-- MENSAJE -->
+        <!-- =================================
+             MENSAJE
+        ================================== -->
+
         <section class="section message-section">
 
-            <p class="section-label">UNA FECHA PARA RECORDAR</p>
+            <p class="section-label">
+                UNA FECHA PARA RECORDAR
+            </p>
 
-            <h2>¡Estás invitado!</h2>
+            <h2>
+                ¡Estás invitado!
+            </h2>
 
             <div class="gold-divider"></div>
 
             <p class="message">
-                Llegar a los 50 años es una ocasión que merece
-                celebrarse rodeado de las personas que forman parte
-                de nuestra historia.
+                Llegar a los 50 años es una ocasión
+                que merece celebrarse rodeado de
+                las personas que forman parte de
+                nuestra historia.
             </p>
 
             <p class="message">
-                Joel Rene Lojano Barrera quiere compartir contigo
-                esta celebración tan especial.
+                Joel Rene Lojano Barrera quiere
+                compartir contigo esta celebración
+                tan especial.
             </p>
 
         </section>
 
 
-        <!-- EDAD -->
+        <!-- =================================
+             50 AÑOS
+        ================================== -->
+
         <section class="age-section">
 
-            <div class="age-number">50</div>
+            <div class="age-number">
+                50
+            </div>
 
             <div class="age-text">
+
                 <span>AÑOS DE</span>
+
                 <strong>HISTORIAS</strong>
+
                 <span>RECUERDOS Y MOMENTOS</span>
+
             </div>
 
         </section>
 
 
-        <!-- CUENTA REGRESIVA -->
+        <!-- =================================
+             CUENTA REGRESIVA
+        ================================== -->
+
         <section class="section countdown-section">
 
-            <p class="section-label">CUENTA REGRESIVA</p>
+            <p class="section-label">
+                CUENTA REGRESIVA
+            </p>
 
-            <h2>Falta muy poco</h2>
+            <h2>
+                Falta muy poco
+            </h2>
 
             <div class="countdown">
 
                 <div class="count-box">
-                    <span id="days">--</span>
-                    <small>DÍAS</small>
+
+                    <span id="days">
+                        --
+                    </span>
+
+                    <small>
+                        DÍAS
+                    </small>
+
                 </div>
 
-                <div class="count-box">
-                    <span id="hours">--</span>
-                    <small>HORAS</small>
-                </div>
 
                 <div class="count-box">
-                    <span id="minutes">--</span>
-                    <small>MINUTOS</small>
+
+                    <span id="hours">
+                        --
+                    </span>
+
+                    <small>
+                        HORAS
+                    </small>
+
                 </div>
 
+
                 <div class="count-box">
-                    <span id="seconds">--</span>
-                    <small>SEGUNDOS</small>
+
+                    <span id="minutes">
+                        --
+                    </span>
+
+                    <small>
+                        MINUTOS
+                    </small>
+
+                </div>
+
+
+                <div class="count-box">
+
+                    <span id="seconds">
+                        --
+                    </span>
+
+                    <small>
+                        SEGUNDOS
+                    </small>
+
                 </div>
 
             </div>
 
             <p class="date-note">
-                Próximamente se anunciarán los detalles de la celebración.
+                Próximamente se anunciarán los detalles
+                de la celebración.
             </p>
 
         </section>
 
 
-        <!-- GALERÍA -->
+        <!-- =================================
+             GALERÍA
+        ================================== -->
+
         <section class="section gallery-section">
 
-            <p class="section-label">RECUERDOS</p>
+            <p class="section-label">
+                RECUERDOS
+            </p>
 
-            <h2>Momentos especiales</h2>
+            <h2>
+                Momentos especiales
+            </h2>
 
             <div class="gold-divider"></div>
 
             <div class="gallery">
 
                 <div class="photo">
-                    <img src="img/foto1.jpg" alt="Joel Rene Lojano Barrera">
+                    <img
+                        src="img/foto1.jpg"
+                        alt="Joel Rene Lojano Barrera">
                 </div>
 
                 <div class="photo">
-                    <img src="img/foto2.jpg" alt="Joel Rene Lojano Barrera">
+                    <img
+                        src="img/foto2.jpg"
+                        alt="Joel Rene Lojano Barrera">
                 </div>
 
                 <div class="photo">
-                    <img src="img/foto3.jpg" alt="Joel Rene Lojano Barrera">
+                    <img
+                        src="img/foto3.jpg"
+                        alt="Joel Rene Lojano Barrera">
                 </div>
 
             </div>
@@ -171,31 +299,70 @@
         </section>
 
 
-        <!-- DETALLES -->
+        <!-- =================================
+             DETALLES
+        ================================== -->
+
         <section class="section details-section">
 
-            <p class="section-label">DETALLES DEL EVENTO</p>
+            <p class="section-label">
+                DETALLES DEL EVENTO
+            </p>
 
-            <h2>Nos vemos para celebrar</h2>
+            <h2>
+                Nos vemos para celebrar
+            </h2>
 
             <div class="details">
 
                 <div class="detail-card">
-                    <div class="detail-icon">📅</div>
-                    <h3>FECHA</h3>
-                    <p>Por confirmar</p>
+
+                    <div class="detail-icon">
+                        📅
+                    </div>
+
+                    <h3>
+                        FECHA
+                    </h3>
+
+                    <p>
+                        Por confirmar
+                    </p>
+
                 </div>
 
-                <div class="detail-card">
-                    <div class="detail-icon">🕐</div>
-                    <h3>HORA</h3>
-                    <p>Por confirmar</p>
-                </div>
 
                 <div class="detail-card">
-                    <div class="detail-icon">📍</div>
-                    <h3>LUGAR</h3>
-                    <p>Cuenca, Ecuador</p>
+
+                    <div class="detail-icon">
+                        🕐
+                    </div>
+
+                    <h3>
+                        HORA
+                    </h3>
+
+                    <p>
+                        Por confirmar
+                    </p>
+
+                </div>
+
+
+                <div class="detail-card">
+
+                    <div class="detail-icon">
+                        📍
+                    </div>
+
+                    <h3>
+                        LUGAR
+                    </h3>
+
+                    <p>
+                        Cuenca, Ecuador
+                    </p>
+
                 </div>
 
             </div>
@@ -203,23 +370,31 @@
         </section>
 
 
-        <!-- CONFIRMACIÓN -->
+        <!-- =================================
+             CONFIRMACIÓN
+        ================================== -->
+
         <section class="rsvp-section">
 
             <div class="rsvp-content">
 
-                <p class="section-label">CONFIRMA TU ASISTENCIA</p>
+                <p class="section-label">
+                    CONFIRMA TU ASISTENCIA
+                </p>
 
-                <h2>Queremos contar contigo</h2>
+                <h2>
+                    Queremos contar contigo
+                </h2>
 
                 <p>
-                    Confirma tu asistencia por WhatsApp para
-                    acompañarnos en esta celebración.
+                    Confirma tu asistencia por WhatsApp
+                    para acompañarnos en esta
+                    celebración.
                 </p>
 
                 <a
                     class="whatsapp-button"
-                    href="https://wa.me/593988865604?text=Hola%2C%20confirmo%20mi%20asistencia%20a%20la%20celebraci%C3%B3n%20de%20los%2050%20a%C3%B1os%20de%20Joel%20Rene%20Lojano%20Barrera."
+                    href="https://wa.me/593988865604?text=Hola%2C%20confirmo%20mi%20asistencia%20a%20la%20celebraci%C3%B3n%20de%20los%2050%20a%C3%B1os%20de%20Joel%20Rene%20Lojano%20Lojano%20Barrera."
                     target="_blank"
                 >
                     CONFIRMAR ASISTENCIA
@@ -230,26 +405,48 @@
         </section>
 
 
-        <!-- MÚSICA -->
-        <button id="musicButton" class="music-button">
+        <!-- =================================
+             MÚSICA
+        ================================== -->
+
+        <button
+            id="musicButton"
+            class="music-button"
+            aria-label="Controlar música"
+        >
             ♪
         </button>
 
-        <audio id="backgroundMusic" loop>
-            <source src="music/cumpleanos.mp3" type="audio/mpeg">
+        <audio
+            id="backgroundMusic"
+            loop
+        >
+            <source
+                src="music/cumpleanos.mp3"
+                type="audio/mpeg"
+            >
         </audio>
 
 
-        <!-- FINAL -->
+        <!-- =================================
+             FOOTER
+        ================================== -->
+
         <footer>
 
             <div class="gold-line"></div>
 
-            <p>JOEL RENE LOJANO BARRERA</p>
+            <p>
+                JOEL RENE LOJANO BARRERA
+            </p>
 
-            <strong>50 AÑOS</strong>
+            <strong>
+                50 AÑOS
+            </strong>
 
-            <span>Una celebración para recordar.</span>
+            <span>
+                Una celebración para recordar.
+            </span>
 
             <div class="gold-line"></div>
 
@@ -261,4 +458,5 @@
     <script src="script.js"></script>
 
 </body>
+
 </html>
