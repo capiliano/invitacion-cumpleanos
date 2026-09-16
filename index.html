@@ -4,274 +4,198 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>¡Estás invitado! 🎉</title>
-
-    <meta
-        name="description"
-        content="Invitación especial de cumpleaños"
-    >
-
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-
-    <link
-        href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@600;700;800&display=swap"
-        rel="stylesheet"
-    >
+    <title>50 años | Joel Rene Lojano Barrera</title>
 
     <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
-    <!-- =========================================
-         PANTALLA DE BIENVENIDA
-    ========================================== -->
-
+    <!-- PANTALLA DE INICIO -->
     <div id="welcomeScreen" class="welcome-screen">
 
         <div class="welcome-content">
 
-            <div class="welcome-emoji">🎉</div>
+            <div class="gold-line"></div>
 
-            <p class="small-title">TIENES UNA INVITACIÓN</p>
+            <p class="small-title">ESTÁS INVITADO A CELEBRAR</p>
 
-            <h1>
-                Una celebración<br>
-                muy especial
-            </h1>
+            <h1>Los 50 años de</h1>
+
+            <h2>Joel Rene<br>Lojano Barrera</h2>
 
             <p class="welcome-text">
-                Prepárate para celebrar,
-                reír y pasarla increíble.
+                Una ocasión especial merece una celebración especial.
             </p>
 
-            <button id="openInvitation" class="main-button">
-                Abrir invitación
-                <span>→</span>
+            <button id="openInvitation">
+                ABRIR INVITACIÓN
             </button>
+
+            <div class="gold-line"></div>
 
         </div>
 
     </div>
 
 
-    <!-- =========================================
-         CONTENIDO PRINCIPAL
-    ========================================== -->
+    <!-- INVITACIÓN -->
+    <main id="invitation" class="invitation">
 
-    <main id="mainContent" class="hidden">
-
-
-        <!-- HERO -->
-
+        <!-- PORTADA -->
         <section class="hero">
 
-            <div class="floating-decoration decoration-one">✦</div>
-            <div class="floating-decoration decoration-two">✦</div>
-            <div class="floating-decoration decoration-three">✧</div>
+            <div class="hero-overlay"></div>
 
             <div class="hero-content">
 
-                <p class="eyebrow">
-                    ESTÁS INVITADO
+                <p class="eyebrow">CELEBRACIÓN ESPECIAL</p>
+
+                <h1>50</h1>
+
+                <span class="years">AÑOS</span>
+
+                <div class="separator"></div>
+
+                <h2>Joel Rene<br>Lojano Barrera</h2>
+
+                <p>
+                    Celebremos juntos este momento tan especial.
                 </p>
 
-                <!-- CAMBIAR NOMBRE -->
-                <h1>
-                    El cumpleaños<br>
-                    de <span>[NOMBRE]</span>
-                </h1>
+            </div>
 
-                <p class="hero-description">
-                    Hay momentos que merecen celebrarse
-                    junto a las personas que queremos.
-                </p>
+        </section>
 
-                <div class="hero-date">
 
-                    <div>
-                        <strong>[DÍA]</strong>
-                        <small>[MES]</small>
-                    </div>
+        <!-- MENSAJE -->
+        <section class="section message-section">
 
-                    <div class="separator"></div>
+            <p class="section-label">UNA FECHA PARA RECORDAR</p>
 
-                    <div>
-                        <strong>[HORA]</strong>
-                        <small>HORAS</small>
-                    </div>
+            <h2>¡Estás invitado!</h2>
 
-                </div>
+            <div class="gold-divider"></div>
 
+            <p class="message">
+                Llegar a los 50 años es una ocasión que merece
+                celebrarse rodeado de las personas que forman parte
+                de nuestra historia.
+            </p>
+
+            <p class="message">
+                Joel Rene Lojano Barrera quiere compartir contigo
+                esta celebración tan especial.
+            </p>
+
+        </section>
+
+
+        <!-- EDAD -->
+        <section class="age-section">
+
+            <div class="age-number">50</div>
+
+            <div class="age-text">
+                <span>AÑOS DE</span>
+                <strong>HISTORIAS</strong>
+                <span>RECUERDOS Y MOMENTOS</span>
             </div>
 
         </section>
 
 
         <!-- CUENTA REGRESIVA -->
+        <section class="section countdown-section">
 
-        <section class="countdown-section">
+            <p class="section-label">CUENTA REGRESIVA</p>
 
-            <p class="section-label">
-                FALTA POCO
-            </p>
-
-            <h2>
-                La celebración comienza en...
-            </h2>
+            <h2>Falta muy poco</h2>
 
             <div class="countdown">
 
-                <div class="time-box">
-                    <strong id="days">00</strong>
-                    <span>DÍAS</span>
+                <div class="count-box">
+                    <span id="days">--</span>
+                    <small>DÍAS</small>
                 </div>
 
-                <div class="time-box">
-                    <strong id="hours">00</strong>
-                    <span>HORAS</span>
+                <div class="count-box">
+                    <span id="hours">--</span>
+                    <small>HORAS</small>
                 </div>
 
-                <div class="time-box">
-                    <strong id="minutes">00</strong>
-                    <span>MIN</span>
+                <div class="count-box">
+                    <span id="minutes">--</span>
+                    <small>MINUTOS</small>
                 </div>
 
-                <div class="time-box">
-                    <strong id="seconds">00</strong>
-                    <span>SEG</span>
+                <div class="count-box">
+                    <span id="seconds">--</span>
+                    <small>SEGUNDOS</small>
                 </div>
 
             </div>
 
-        </section>
-
-
-        <!-- INFORMACIÓN -->
-
-        <section class="info-section">
-
-            <div class="section-heading">
-
-                <p class="section-label">
-                    GUARDA LA FECHA
-                </p>
-
-                <h2>
-                    Nos vemos ahí
-                </h2>
-
-            </div>
-
-
-            <div class="info-grid">
-
-                <article class="info-card">
-
-                    <div class="icon">📅</div>
-
-                    <div>
-                        <span>FECHA</span>
-                        <h3>[DÍA DE LA SEMANA]</h3>
-                        <p>[DÍA] de [MES] de [AÑO]</p>
-                    </div>
-
-                </article>
-
-
-                <article class="info-card">
-
-                    <div class="icon">🕐</div>
-
-                    <div>
-                        <span>HORA</span>
-                        <h3>[HORA]</h3>
-                        <p>[HORA DE FINALIZACIÓN]</p>
-                    </div>
-
-                </article>
-
-
-                <article class="info-card">
-
-                    <div class="icon">📍</div>
-
-                    <div>
-                        <span>LUGAR</span>
-                        <h3>[NOMBRE DEL LUGAR]</h3>
-                        <p>[DIRECCIÓN]</p>
-                    </div>
-
-                </article>
-
-            </div>
-
-
-            <a
-                class="location-button"
-                href="https://www.google.com/maps/search/?api=1&query=TU+UBICACION"
-                target="_blank"
-                rel="noopener"
-            >
-                📍 Ver ubicación
-            </a>
-
-        </section>
-
-
-        <!-- MENSAJE -->
-
-        <section class="message-section">
-
-            <div class="message-card">
-
-                <div class="quote-mark">“</div>
-
-                <p>
-                    No sería lo mismo celebrar este día
-                    sin las personas que forman parte
-                    de momentos importantes.
-                </p>
-
-                <strong>
-                    ¡Espero verte!
-                </strong>
-
-            </div>
+            <p class="date-note">
+                Próximamente se anunciarán los detalles de la celebración.
+            </p>
 
         </section>
 
 
         <!-- GALERÍA -->
+        <section class="section gallery-section">
 
-        <section class="gallery-section">
+            <p class="section-label">RECUERDOS</p>
 
-            <div class="section-heading">
+            <h2>Momentos especiales</h2>
 
-                <p class="section-label">
-                    RECUERDOS
-                </p>
-
-                <h2>
-                    Algunos momentos
-                </h2>
-
-            </div>
-
+            <div class="gold-divider"></div>
 
             <div class="gallery">
 
-                <div class="photo photo-one">
-                    <img src="img/foto1.jpg" alt="Recuerdo 1">
+                <div class="photo">
+                    <img src="img/foto1.jpg" alt="Joel Rene Lojano Barrera">
                 </div>
 
-                <div class="photo photo-two">
-                    <img src="img/foto2.jpg" alt="Recuerdo 2">
+                <div class="photo">
+                    <img src="img/foto2.jpg" alt="Joel Rene Lojano Barrera">
                 </div>
 
-                <div class="photo photo-three">
-                    <img src="img/foto3.jpg" alt="Recuerdo 3">
+                <div class="photo">
+                    <img src="img/foto3.jpg" alt="Joel Rene Lojano Barrera">
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- DETALLES -->
+        <section class="section details-section">
+
+            <p class="section-label">DETALLES DEL EVENTO</p>
+
+            <h2>Nos vemos para celebrar</h2>
+
+            <div class="details">
+
+                <div class="detail-card">
+                    <div class="detail-icon">📅</div>
+                    <h3>FECHA</h3>
+                    <p>Por confirmar</p>
+                </div>
+
+                <div class="detail-card">
+                    <div class="detail-icon">🕐</div>
+                    <h3>HORA</h3>
+                    <p>Por confirmar</p>
+                </div>
+
+                <div class="detail-card">
+                    <div class="detail-icon">📍</div>
+                    <h3>LUGAR</h3>
+                    <p>Cuenca, Ecuador</p>
                 </div>
 
             </div>
@@ -280,31 +204,25 @@
 
 
         <!-- CONFIRMACIÓN -->
-
         <section class="rsvp-section">
 
-            <div class="rsvp-card">
+            <div class="rsvp-content">
 
-                <p class="section-label">
-                    ¿VIENES?
-                </p>
+                <p class="section-label">CONFIRMA TU ASISTENCIA</p>
 
-                <h2>
-                    Confirma tu asistencia
-                </h2>
+                <h2>Queremos contar contigo</h2>
 
                 <p>
-                    Así podremos preparar todo
-                    para recibirte.
+                    Confirma tu asistencia por WhatsApp para
+                    acompañarnos en esta celebración.
                 </p>
 
                 <a
                     class="whatsapp-button"
-                    href="https://wa.me/593XXXXXXXXX?text=Hola%2C%20confirmo%20mi%20asistencia%20al%20cumplea%C3%B1os."
+                    href="https://wa.me/593988865604?text=Hola%2C%20confirmo%20mi%20asistencia%20a%20la%20celebraci%C3%B3n%20de%20los%2050%20a%C3%B1os%20de%20Joel%20Rene%20Lojano%20Barrera."
                     target="_blank"
-                    rel="noopener"
                 >
-                    Confirmar por WhatsApp
+                    CONFIRMAR ASISTENCIA
                 </a>
 
             </div>
@@ -312,89 +230,32 @@
         </section>
 
 
-        <!-- SORPRESA -->
+        <!-- MÚSICA -->
+        <button id="musicButton" class="music-button">
+            ♪
+        </button>
 
-        <section class="surprise-section">
-
-            <p class="section-label">
-                HAY ALGO MÁS...
-            </p>
-
-            <h2>
-                ¿Quieres descubrir
-                una sorpresa?
-            </h2>
-
-            <button id="surpriseButton" class="surprise-button">
-                ✨ Abrir sorpresa
-            </button>
-
-            <div id="surpriseContent" class="surprise-content">
-
-                <div class="surprise-icon">
-                    🎂
-                </div>
-
-                <h3>
-                    ¡Sorpresa!
-                </h3>
-
-                <p>
-                    [AQUÍ PUEDES PONER UN MENSAJE,
-                    VIDEO, FOTO O INFORMACIÓN ESPECIAL]
-                </p>
-
-            </div>
-
-        </section>
+        <audio id="backgroundMusic" loop>
+            <source src="music/cumpleanos.mp3" type="audio/mpeg">
+        </audio>
 
 
         <!-- FINAL -->
-
         <footer>
 
-            <div class="footer-confetti">
-                🎈 🎉 🎂 🎊 🎈
-            </div>
+            <div class="gold-line"></div>
 
-            <h2>
-                ¡Nos vemos!
-            </h2>
+            <p>JOEL RENE LOJANO BARRERA</p>
 
-            <p>
-                Gracias por ser parte de este momento.
-            </p>
+            <strong>50 AÑOS</strong>
 
-            <small>
-                Hecho con ❤️
-            </small>
+            <span>Una celebración para recordar.</span>
+
+            <div class="gold-line"></div>
 
         </footer>
 
-
     </main>
-
-
-    <!-- BOTÓN DE MÚSICA -->
-
-    <button
-        id="musicButton"
-        class="music-button"
-        aria-label="Activar música"
-    >
-        🔇
-    </button>
-
-
-    <!-- AUDIO -->
-
-    <audio
-        id="backgroundMusic"
-        loop
-        preload="auto"
-    >
-        <source src="music/cumpleanos.mp3" type="audio/mpeg">
-    </audio>
 
 
     <script src="script.js"></script>
