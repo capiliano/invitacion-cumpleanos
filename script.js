@@ -1,285 +1,275 @@
-// ===============================
-// CONFIGURACIÓN
-// ===============================
+document.addEventListener("DOMContentLoaded", () => {
 
-// Cuando tengas la fecha real, cámbiala aquí.
-// Formato: Año-Mes-DíaTHora:Minuto:Segundo
-const birthdayDate = new Date("2026-12-25T20:00:00");
+    /* =========================
+       ELEMENTOS
+    ========================== */
+
+    const welcome = document.getElementById("welcome");
+
+    const invitation = document.getElementById("invitation");
+
+    const openButton = document.getElementById("openInvitation");
+
+    const music = document.getElementById("music");
+
+    const musicButton = document.getElementById("musicButton");
+
+    const days = document.getElementById("days");
+
+    const hours = document.getElementById("hours");
+
+    const minutes = document.getElementById("minutes");
+
+    const seconds = document.getElementById("seconds");
 
 
-// ===============================
-// ELEMENTOS
-// ===============================
+    /* =========================
+       ESTADO DE LA MÚSICA
+    ========================== */
 
-const welcomeScreen = document.getElementById("welcomeScreen");
-const openInvitation = document.getElementById("openInvitation");
-const invitation = document.getElementById("invitation");
-
-const musicButton = document.getElementById("musicButton");
-const backgroundMusic = document.getElementById("backgroundMusic");
-
-const daysElement = document.getElementById("days");
-const hoursElement = document.getElementById("hours");
-const minutesElement = document.getElementById("minutes");
-const secondsElement = document.getElementById("seconds");
+    let musicPlaying = false;
 
 
-// ===============================
-// ABRIR INVITACIÓN
-// ===============================
+    /* =========================
+       ABRIR INVITACIÓN
+    ========================== */
 
-openInvitation.addEventListener("click", () => {
+    openButton.addEventListener("click", async () => {
 
-    welcomeScreen.classList.add("hide");
-    invitation.classList.add("show");
+        /*
+         * Ocultamos la pantalla inicial.
+         */
 
-    document.body.classList.remove("no-scroll");
+        welcome.style.display = "none";
 
-    // Intentar iniciar música
-    backgroundMusic.volume = 0.35;
 
-    backgroundMusic.play()
-        .then(() => {
-            musicButton.classList.add("playing");
-            musicButton.textContent = "♫";
-        })
-        .catch(() => {
-            console.log("El navegador bloqueó el inicio automático de la música.");
+        /*
+         * Mostramos la invitación.
+         */
+
+        invitation.classList.add("active");
+
+
+        /*
+         * Mostramos el botón de música.
+         */
+
+        musicButton.classList.add("visible");
+
+
+        /*
+         * Llevamos al usuario al inicio
+         * de la invitación.
+         */
+
+        window.scrollTo({
+            top: 0,
+            behavior: "smooth"
         });
 
-    lanzarConfeti();
 
-    setTimeout(() => {
-        welcomeScreen.style.display = "none";
-    }, 1000);
+        /*
+         * IMPORTANTE:
+         *
+         * Como esta función ocurre después
+         * de que el usuario presionó el botón,
+         * el navegador permite iniciar el audio.
+         */
 
-});
+        try {
 
+            music.currentTime = 0;
 
-// ===============================
-// CUENTA REGRESIVA
-// ===============================
+            await music.play();
 
-function updateCountdown() {
+            musicPlaying = true;
 
-    const now = new Date().getTime();
-    const target = birthdayDate.getTime();
+            musicButton.textContent = "Ⅱ";
 
-    const difference = target - now;
+        } catch (error) {
 
-    if (difference <= 0) {
+            console.log(
+                "El navegador no permitió iniciar la música:",
+                error
+            );
 
-        daysElement.textContent = "00";
-        hoursElement.textContent = "00";
-        minutesElement.textContent = "00";
-        secondsElement.textContent = "00";
+        }
 
-        return;
-    }
-
-    const days = Math.floor(
-        difference / (1000 * 60 * 60 * 24)
-    );
-
-    const hours = Math.floor(
-        (difference / (1000 * 60 * 60)) % 24
-    );
-
-    const minutes = Math.floor(
-        (difference / (1000 * 60)) % 60
-    );
-
-    const seconds = Math.floor(
-        (difference / 1000) % 60
-    );
-
-    daysElement.textContent = String(days).padStart(2, "0");
-    hoursElement.textContent = String(hours).padStart(2, "0");
-    minutesElement.textContent = String(minutes).padStart(2, "0");
-    secondsElement.textContent = String(seconds).padStart(2, "0");
-}
-
-updateCountdown();
-
-setInterval(updateCountdown, 1000);
+    });
 
 
-// ===============================
-// MÚSICA
-// ===============================
+    /* =========================
+       MÚSICA EN BUCLE
+    ========================== */
 
-let musicPlaying = false;
+    /*
+     * El atributo "loop" del HTML hace que
+     * la canción vuelva a comenzar automáticamente
+     * cuando termina.
+     *
+     * Este evento también sirve como respaldo.
+     */
 
-musicButton.addEventListener("click", () => {
+    music.addEventListener("ended", () => {
 
-    if (musicPlaying) {
+        music.currentTime = 0;
 
-        backgroundMusic.pause();
+        music.play().catch(() => {
+            console.log("No se pudo reiniciar la música.");
+        });
 
-        musicPlaying = false;
+    });
 
-        musicButton.textContent = "♪";
-        musicButton.classList.remove("playing");
 
-    } else {
+    /* =========================
+       BOTÓN DE MÚSICA
+    ========================== */
 
-        backgroundMusic.play()
-            .then(() => {
+    musicButton.addEventListener("click", async () => {
+
+        if (musicPlaying) {
+
+            /*
+             * PAUSAR
+             */
+
+            music.pause();
+
+            musicPlaying = false;
+
+            musicButton.textContent = "♪";
+
+        } else {
+
+            /*
+             * REANUDAR
+             */
+
+            try {
+
+                await music.play();
 
                 musicPlaying = true;
 
-                musicButton.textContent = "♫";
-                musicButton.classList.add("playing");
+                musicButton.textContent = "Ⅱ";
 
-            })
-            .catch(() => {
+            } catch (error) {
 
-                alert(
-                    "No se pudo reproducir la música. " +
-                    "Asegúrate de tener el archivo cumpleanos.mp3 dentro de la carpeta music."
+                console.log(
+                    "No se pudo reproducir la música:",
+                    error
                 );
-
-            });
-
-    }
-
-});
-
-
-// ===============================
-// ACTUALIZAR ESTADO DE MÚSICA
-// ===============================
-
-backgroundMusic.addEventListener("play", () => {
-
-    musicPlaying = true;
-
-    musicButton.textContent = "♫";
-    musicButton.classList.add("playing");
-
-});
-
-backgroundMusic.addEventListener("pause", () => {
-
-    musicPlaying = false;
-
-    musicButton.textContent = "♪";
-    musicButton.classList.remove("playing");
-
-});
-
-
-// ===============================
-// CONFETI
-// ===============================
-
-function lanzarConfeti() {
-
-    const cantidad = 100;
-
-    for (let i = 0; i < cantidad; i++) {
-
-        const confeti = document.createElement("div");
-
-        confeti.className = "confeti";
-
-        confeti.style.left = Math.random() * 100 + "vw";
-
-        confeti.style.animationDuration =
-            (Math.random() * 3 + 2) + "s";
-
-        confeti.style.animationDelay =
-            Math.random() * 1.5 + "s";
-
-        confeti.style.transform =
-            `rotate(${Math.random() * 360}deg)`;
-
-        document.body.appendChild(confeti);
-
-        setTimeout(() => {
-            confeti.remove();
-        }, 6000);
-
-    }
-
-}
-
-
-// ===============================
-// ANIMACIONES AL HACER SCROLL
-// ===============================
-
-const observer = new IntersectionObserver(
-    (entries) => {
-
-        entries.forEach((entry) => {
-
-            if (entry.isIntersecting) {
-
-                entry.target.classList.add("visible");
 
             }
 
-        });
+        }
 
-    },
-    {
-        threshold: 0.15
-    }
-);
+    });
 
 
-// Observar elementos
-document.querySelectorAll(
-    ".section, .detail-card, .photo, .age-section"
-).forEach((element) => {
+    /* =========================
+       CUENTA REGRESIVA
+    ========================== */
 
-    element.classList.add("scroll-hidden");
+    /*
+     * Todavía no tenemos la fecha real
+     * del cumpleaños.
+     *
+     * Por eso mostramos "--".
+     */
 
-    observer.observe(element);
+    function countdownDisabled() {
 
-});
+        days.textContent = "--";
 
+        hours.textContent = "--";
 
-// ===============================
-// EFECTO PARALLAX SUAVE
-// ===============================
+        minutes.textContent = "--";
 
-window.addEventListener("scroll", () => {
-
-    const hero = document.querySelector(".hero");
-
-    if (!hero) return;
-
-    const scrollPosition = window.scrollY;
-
-    if (scrollPosition < window.innerHeight) {
-
-        hero.style.backgroundPosition =
-            `center ${scrollPosition * 0.25}px`;
+        seconds.textContent = "--";
 
     }
 
-});
+    countdownDisabled();
 
 
-// ===============================
-// PREVENIR SCROLL AL INICIO
-// ===============================
+    /* =========================
+       EFECTO DE DOBLE CLICK
+    ========================== */
 
-document.body.classList.add("no-scroll");
+    document.addEventListener("dblclick", () => {
+
+        for (let i = 0; i < 12; i++) {
+
+            const particle = document.createElement("div");
+
+            particle.style.position = "fixed";
+
+            particle.style.width = "6px";
+
+            particle.style.height = "6px";
+
+            particle.style.background = "#c9a657";
+
+            particle.style.borderRadius = "50%";
+
+            particle.style.left = "50%";
+
+            particle.style.top = "50%";
+
+            particle.style.zIndex = "9999";
+
+            particle.style.pointerEvents = "none";
 
 
-// ===============================
-// DOBLE CLICK PARA CONFETI
-// ===============================
+            const angle =
+                Math.random() * Math.PI * 2;
 
-document.addEventListener("dblclick", () => {
+            const distance =
+                80 + Math.random() * 160;
 
-    if (invitation.classList.contains("show")) {
 
-        lanzarConfeti();
+            document.body.appendChild(particle);
 
-    }
+
+            particle.animate(
+
+                [
+                    {
+                        transform:
+                            "translate(-50%, -50%) scale(1)",
+
+                        opacity: 1
+                    },
+
+                    {
+                        transform:
+                            `translate(
+                                calc(-50% + ${Math.cos(angle) * distance}px),
+                                calc(-50% + ${Math.sin(angle) * distance}px)
+                            ) scale(0)`,
+
+                        opacity: 0
+                    }
+                ],
+
+                {
+                    duration: 900,
+
+                    easing: "ease-out"
+                }
+
+            );
+
+
+            setTimeout(() => {
+
+                particle.remove();
+
+            }, 900);
+
+        }
+
+    });
 
 });
