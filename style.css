@@ -1,3 +1,4 @@
+```css
 * {
     margin: 0;
     padding: 0;
@@ -242,13 +243,102 @@ a {
 
 
 /* =========================
+   FOTO PRINCIPAL
+========================= */
+
+.portrait-section {
+    width: 100%;
+    max-width: 700px;
+
+    margin: auto;
+
+    padding: 75px 28px 45px;
+
+    text-align: center;
+}
+
+.portrait-frame {
+    position: relative;
+
+    width: min(100%, 430px);
+
+    aspect-ratio: 4 / 5;
+
+    margin: auto;
+
+    padding: 10px;
+
+    border: 1px solid rgba(201, 166, 87, 0.45);
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(201, 166, 87, 0.12),
+            rgba(255, 255, 255, 0.02)
+        );
+
+    box-shadow:
+        0 25px 70px rgba(0, 0, 0, 0.45);
+}
+
+.portrait-frame::before {
+    content: "";
+
+    position: absolute;
+
+    inset: 6px;
+
+    border: 1px solid rgba(201, 166, 87, 0.15);
+
+    pointer-events: none;
+
+    z-index: 2;
+}
+
+.portrait-frame img {
+    width: 100%;
+    height: 100%;
+
+    display: block;
+
+    object-fit: cover;
+}
+
+.portrait-number {
+    position: absolute;
+
+    right: -12px;
+    bottom: -18px;
+
+    font-size: 90px;
+
+    line-height: 1;
+
+    color: rgba(201, 166, 87, 0.12);
+
+    pointer-events: none;
+}
+
+.portrait-caption {
+    margin-top: 28px;
+
+    font-family: Arial, Helvetica, sans-serif;
+
+    font-size: 10px;
+
+    letter-spacing: 4px;
+
+    color: #888;
+}
+
+
+/* =========================
    SECCIONES
 ========================= */
 
 .hero-section,
 .countdown-section,
 .details-section,
-.photos-section,
 .rsvp-section,
 .final-section {
 
@@ -265,7 +355,6 @@ a {
 }
 
 .hero-section h2,
-.photos-section h2,
 .rsvp-box h2 {
 
     font-size: clamp(38px, 10vw, 62px);
@@ -278,7 +367,6 @@ a {
 }
 
 .hero-section h2 span,
-.photos-section h2 span,
 .rsvp-box h2 span {
     color: #c9a657;
 }
@@ -353,7 +441,7 @@ a {
 .pending {
     margin-top: 22px;
 
-    color: #777;
+    color: #c9a657;
 
     font-family: Arial, Helvetica, sans-serif;
 
@@ -418,52 +506,6 @@ a {
     color: #aaa49a;
 
     font-size: 16px;
-}
-
-
-/* =========================
-   FOTOS
-========================= */
-
-.photos-section {
-    text-align: center;
-}
-
-.photos {
-    display: grid;
-
-    grid-template-columns: 1fr;
-
-    gap: 15px;
-
-    margin-top: 35px;
-}
-
-.photo {
-    width: 100%;
-
-    aspect-ratio: 4 / 5;
-
-    overflow: hidden;
-
-    background: #151515;
-
-    border: 1px solid rgba(201, 166, 87, 0.2);
-}
-
-.photo img {
-    width: 100%;
-    height: 100%;
-
-    display: block;
-
-    object-fit: cover;
-
-    transition: transform 0.6s ease;
-}
-
-.photo:hover img {
-    transform: scale(1.04);
 }
 
 
@@ -652,10 +694,10 @@ a {
         max-width: 650px;
     }
 
+    .portrait-section,
     .hero-section,
     .countdown-section,
     .details-section,
-    .photos-section,
     .rsvp-section,
     .final-section {
 
@@ -663,12 +705,9 @@ a {
         padding-right: 50px;
     }
 
-    .photos {
-        grid-template-columns: repeat(3, 1fr);
-    }
-
-    .photo {
-        aspect-ratio: 3 / 4;
+    .portrait-frame {
+        max-width: 430px;
     }
 
 }
+```
