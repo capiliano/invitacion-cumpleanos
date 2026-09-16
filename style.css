@@ -1,14 +1,4 @@
-:root {
-    --background: #fffaf5;
-    --surface: #ffffff;
-    --text: #241f20;
-    --muted: #756d6b;
-    --accent: #d85d72;
-    --accent-dark: #b83e56;
-    --secondary: #f4d6c8;
-    --border: #eadfda;
-    --shadow: 0 20px 60px rgba(40, 25, 20, 0.10);
-}
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Montserrat:wght@300;400;500;600&display=swap');
 
 * {
     margin: 0;
@@ -21,20 +11,187 @@ html {
 }
 
 body {
-    font-family: "DM Sans", sans-serif;
-    background: var(--background);
-    color: var(--text);
-    overflow-x: hidden;
+    background: #080808;
+    color: #f4f1e8;
+    font-family: 'Montserrat', sans-serif;
 }
 
-button,
-a {
-    font-family: inherit;
+body.no-scroll {
+    overflow: hidden;
+}
+
+
+/* =========================
+   PANTALLA DE BIENVENIDA
+========================= */
+
+.welcome-screen {
+    position: fixed;
+    inset: 0;
+    z-index: 9999;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background:
+        radial-gradient(circle at center, #252525 0%, #080808 65%);
+
+    transition: opacity 1s ease, visibility 1s ease;
+}
+
+.welcome-screen.hide {
+    opacity: 0;
+    visibility: hidden;
+}
+
+.welcome-content {
+    width: min(90%, 600px);
+    text-align: center;
+    padding: 30px;
+}
+
+.gold-line {
+    width: 100px;
+    height: 1px;
+    background: #c9a45c;
+    margin: 25px auto;
+}
+
+.small-title,
+.section-label,
+.eyebrow {
+    letter-spacing: 4px;
+    font-size: 11px;
+    color: #c9a45c;
+    font-weight: 500;
+}
+
+.welcome-content h1 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 27px;
+    font-weight: 400;
+    margin-top: 30px;
+}
+
+.welcome-content h2 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(40px, 9vw, 70px);
+    line-height: .9;
+    font-weight: 600;
+    margin: 20px 0;
+}
+
+.welcome-text {
+    color: #aaa;
+    font-size: 13px;
+    margin: 25px auto;
+    line-height: 1.8;
 }
 
 button {
-    cursor: pointer;
+    font-family: 'Montserrat', sans-serif;
 }
+
+
+/* =========================
+   BOTÓN
+========================= */
+
+#openInvitation {
+    border: 1px solid #c9a45c;
+    background: transparent;
+    color: #fff;
+    padding: 15px 30px;
+    letter-spacing: 3px;
+    font-size: 11px;
+    cursor: pointer;
+    transition: .3s;
+}
+
+#openInvitation:hover {
+    background: #c9a45c;
+    color: #080808;
+}
+
+
+/* =========================
+   INVITACIÓN
+========================= */
+
+.invitation {
+    display: none;
+}
+
+.invitation.show {
+    display: block;
+}
+
+
+/* =========================
+   HERO
+========================= */
+
+.hero {
+    min-height: 100vh;
+    position: relative;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background:
+        linear-gradient(
+            rgba(0,0,0,.65),
+            rgba(0,0,0,.9)
+        ),
+        url("img/foto1.jpg") center / cover;
+
+    text-align: center;
+}
+
+.hero-overlay {
+    position: absolute;
+    inset: 0;
+
+    background:
+        radial-gradient(
+            circle,
+            transparent 10%,
+            rgba(0,0,0,.7) 90%
+        );
+}
+
+.hero-content {
+    position: relative;
+    z-index: 2;
+    padding: 30px;
+}
+
+.hero h1 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(150px, 40vw, 280px);
+    line-height: .65;
+    font-weight: 500;
+    color: #d2b36c;
+}
+
+.years {
+    display: block;
+    letter-spacing: 12px;
+    margin-top: 20px;
+    font-size: 13px;
+}
+
+.separator {
+    width: 70px;
+    height: 1px;
+    background: #c9a45c;
+    margin: 30px auto;
+}
+
+.hero h2 {
+    font-family: 'Cormorant}
 
 .hidden {
     display: none;
