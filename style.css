@@ -1,223 +1,107 @@
-```css
 * {
+    box-sizing: border-box;
     margin: 0;
     padding: 0;
-    box-sizing: border-box;
 }
 
-html {
-    scroll-behavior: smooth;
-}
-
+html,
 body {
-    background: #090909;
-    color: #f5f1e8;
-    font-family: Georgia, "Times New Roman", serif;
+    width: 100%;
+    max-width: 100%;
+    min-height: 100%;
     overflow-x: hidden;
 }
 
-button,
-a {
-    font-family: inherit;
+body {
+    font-family: "Georgia", "Times New Roman", serif;
+    background: #11100e;
+    color: #f4f0e8;
 }
-
 
 /* =========================
    PANTALLA DE BIENVENIDA
 ========================= */
 
 .welcome {
+    width: 100%;
     min-height: 100vh;
-    min-height: 100svh;
-
-    position: relative;
-    overflow: hidden;
-
+    min-height: 100dvh;
     display: flex;
-    justify-content: center;
     align-items: center;
-
+    justify-content: center;
+    text-align: center;
+    padding: 30px 20px;
     background:
         radial-gradient(
             circle at center,
-            rgba(201, 166, 87, 0.16) 0%,
-            rgba(201, 166, 87, 0.05) 30%,
-            #090909 70%
+            #25221c 0%,
+            #151410 45%,
+            #0d0c0a 100%
         );
-
-    padding: 40px 24px;
-}
-
-.welcome::before {
-    content: "";
-
-    position: absolute;
-
-    inset: 18px;
-
-    border: 1px solid rgba(201, 166, 87, 0.35);
-
-    pointer-events: none;
-}
-
-.gold-circle {
-    position: absolute;
-
-    width: 430px;
-    height: 430px;
-
-    border-radius: 50%;
-
-    border: 1px solid rgba(201, 166, 87, 0.15);
-
-    box-shadow:
-        0 0 100px rgba(201, 166, 87, 0.08);
-
-    pointer-events: none;
+    overflow: hidden;
 }
 
 .welcome-content {
-    position: relative;
-    z-index: 2;
-
     width: 100%;
-    max-width: 500px;
-
-    text-align: center;
-
-    padding: 20px;
+    max-width: 650px;
 }
 
-.small-title,
-.section-label {
-    font-family: Arial, Helvetica, sans-serif;
-
-    font-size: 11px;
-
-    letter-spacing: 4px;
-
+.welcome-number {
+    font-family: "Times New Roman", serif;
+    font-size: clamp(100px, 25vw, 220px);
+    font-weight: 300;
+    line-height: 0.8;
     color: #c9a657;
-
-    font-weight: bold;
-}
-
-.small-title {
-    margin-bottom: 12px;
-}
-
-.big-number {
-    position: absolute;
-
-    left: 50%;
-    top: 50%;
-
-    transform: translate(-50%, -50%);
-
-    font-family: Georgia, serif;
-
-    font-size: clamp(180px, 55vw, 330px);
-
-    line-height: 1;
-
-    color: rgba(201, 166, 87, 0.035);
-
-    z-index: -1;
-
-    user-select: none;
-}
-
-.welcome h1 {
-    font-size: clamp(42px, 11vw, 72px);
-
-    line-height: 0.95;
-
-    font-weight: normal;
-
-    letter-spacing: -2px;
-
-    margin-bottom: 20px;
-}
-
-.welcome h1 span {
-    color: #c9a657;
-}
-
-.line {
-    width: 55px;
-    height: 1px;
-
-    background: #c9a657;
-
-    margin: 20px auto;
-}
-
-.age {
-    font-family: Arial, Helvetica, sans-serif;
-
-    font-size: 13px;
-
-    letter-spacing: 6px;
-
-    color: #d9d1bf;
-
-    margin-bottom: 22px;
-}
-
-.phrase {
-    color: #aaa49a;
-
-    font-size: 15px;
-
-    line-height: 1.7;
-
+    letter-spacing: -10px;
     margin-bottom: 30px;
 }
 
-#openInvitation {
+.welcome-small {
+    font-family: Arial, sans-serif;
+    font-size: 12px;
+    letter-spacing: 5px;
+    color: #b9b3a5;
+    margin-bottom: 18px;
+    text-transform: uppercase;
+}
+
+.welcome-name {
+    font-family: "Times New Roman", serif;
+    font-size: clamp(28px, 7vw, 52px);
+    font-weight: 400;
+    line-height: 1.1;
+    color: #f5f0e7;
+    text-transform: uppercase;
+    margin-bottom: 10px;
+}
+
+.welcome-lastname {
+    font-family: Arial, sans-serif;
+    font-size: clamp(12px, 3vw, 16px);
+    letter-spacing: 5px;
+    color: #c9a657;
+    text-transform: uppercase;
+    margin-bottom: 50px;
+}
+
+.open-button {
+    display: inline-block;
     border: 1px solid #c9a657;
-
     background: transparent;
-
-    color: #f5f1e8;
-
-    padding: 16px 28px;
-
-    font-family: Arial, Helvetica, sans-serif;
-
-    font-size: 11px;
-
+    color: #e8dfcc;
+    padding: 17px 34px;
+    font-family: Arial, sans-serif;
+    font-size: 12px;
     letter-spacing: 3px;
-
     cursor: pointer;
-
-    transition:
-        background 0.3s ease,
-        color 0.3s ease,
-        transform 0.2s ease;
+    transition: all 0.3s ease;
+    max-width: 100%;
 }
 
-#openInvitation:hover {
+.open-button:hover {
     background: #c9a657;
-
-    color: #090909;
+    color: #11100e;
 }
-
-#openInvitation:active {
-    transform: scale(0.97);
-}
-
-.location {
-    margin-top: 24px;
-
-    font-family: Arial, Helvetica, sans-serif;
-
-    font-size: 10px;
-
-    letter-spacing: 3px;
-
-    color: #777;
-}
-
 
 /* =========================
    INVITACIÓN
@@ -225,22 +109,14 @@ a {
 
 .invitation {
     display: none;
-
     width: 100%;
-
-    background:
-        linear-gradient(
-            180deg,
-            #090909 0%,
-            #10100f 50%,
-            #090909 100%
-        );
+    max-width: 100%;
+    overflow-x: hidden;
 }
 
 .invitation.active {
     display: block;
 }
-
 
 /* =========================
    FOTO PRINCIPAL
@@ -248,373 +124,354 @@ a {
 
 .portrait-section {
     width: 100%;
-    max-width: 700px;
-
-    margin: auto;
-
-    padding: 75px 28px 45px;
-
+    min-height: 100vh;
+    min-height: 100dvh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 60px 20px;
+    background:
+        radial-gradient(
+            circle at center,
+            #29251e 0%,
+            #151410 55%,
+            #0d0c0a 100%
+        );
     text-align: center;
+    overflow: hidden;
 }
 
 .portrait-frame {
     position: relative;
-
-    width: min(100%, 430px);
-
-    aspect-ratio: 4 / 5;
-
-    margin: auto;
-
-    padding: 10px;
-
-    border: 1px solid rgba(201, 166, 87, 0.45);
-
-    background:
-        linear-gradient(
-            145deg,
-            rgba(201, 166, 87, 0.12),
-            rgba(255, 255, 255, 0.02)
-        );
-
-    box-shadow:
-        0 25px 70px rgba(0, 0, 0, 0.45);
+    width: min(78vw, 430px);
+    aspect-ratio: 3 / 4;
+    border: 1px solid #c9a657;
+    padding: 8px;
+    margin-bottom: 25px;
 }
 
 .portrait-frame::before {
     content: "";
-
     position: absolute;
-
-    inset: 6px;
-
-    border: 1px solid rgba(201, 166, 87, 0.15);
-
+    inset: 12px;
+    border: 1px solid rgba(201, 166, 87, 0.35);
     pointer-events: none;
-
     z-index: 2;
 }
 
 .portrait-frame img {
+    display: block;
     width: 100%;
     height: 100%;
-
-    display: block;
-
     object-fit: cover;
 }
 
 .portrait-number {
     position: absolute;
-
-    right: -12px;
-    bottom: -18px;
-
-    font-size: 90px;
-
-    line-height: 1;
-
-    color: rgba(201, 166, 87, 0.12);
-
-    pointer-events: none;
+    bottom: -20px;
+    right: -20px;
+    width: 65px;
+    height: 65px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #11100e;
+    border: 1px solid #c9a657;
+    color: #c9a657;
+    font-family: "Times New Roman", serif;
+    font-size: 28px;
+    z-index: 3;
 }
 
 .portrait-caption {
-    margin-top: 28px;
-
-    font-family: Arial, Helvetica, sans-serif;
-
-    font-size: 10px;
-
+    max-width: 90%;
+    font-family: Arial, sans-serif;
+    font-size: 11px;
     letter-spacing: 4px;
-
-    color: #888;
-}
-
-
-/* =========================
-   SECCIONES
-========================= */
-
-.hero-section,
-.countdown-section,
-.details-section,
-.rsvp-section,
-.final-section {
-
-    width: 100%;
-    max-width: 700px;
-
-    margin: auto;
-
-    padding: 90px 28px;
-}
-
-.hero-section {
-    text-align: center;
-}
-
-.hero-section h2,
-.rsvp-box h2 {
-
-    font-size: clamp(38px, 10vw, 62px);
-
-    line-height: 1;
-
-    font-weight: normal;
-
-    margin: 22px 0;
-}
-
-.hero-section h2 span,
-.rsvp-box h2 span {
+    line-height: 1.6;
     color: #c9a657;
 }
 
-.hero-section > p:last-child {
-    max-width: 480px;
+/* =========================
+   HERO
+========================= */
 
-    margin: auto;
-
-    color: #aaa49a;
-
-    font-size: 16px;
-
-    line-height: 1.8;
+.hero {
+    width: 100%;
+    min-height: 85vh;
+    min-height: 85dvh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 80px 20px;
+    background:
+        linear-gradient(
+            rgba(17, 16, 14, 0.85),
+            rgba(17, 16, 14, 0.95)
+        );
+    overflow: hidden;
 }
 
+.hero-small {
+    font-family: Arial, sans-serif;
+    font-size: 11px;
+    letter-spacing: 5px;
+    color: #c9a657;
+    margin-bottom: 25px;
+    text-transform: uppercase;
+}
+
+.hero-title {
+    max-width: 900px;
+    font-family: "Times New Roman", serif;
+    font-size: clamp(42px, 10vw, 90px);
+    font-weight: 400;
+    line-height: 0.95;
+    color: #f4f0e8;
+    text-transform: uppercase;
+}
+
+.hero-subtitle {
+    margin-top: 30px;
+    max-width: 600px;
+    font-family: Arial, sans-serif;
+    font-size: 14px;
+    line-height: 1.8;
+    color: #aaa59b;
+}
 
 /* =========================
    CUENTA REGRESIVA
 ========================= */
 
 .countdown-section {
+    width: 100%;
+    padding: 90px 20px;
+    background: #171613;
     text-align: center;
+    overflow: hidden;
+}
 
-    border-top: 1px solid rgba(255, 255, 255, 0.06);
-
-    border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+.section-label {
+    font-family: Arial, sans-serif;
+    font-size: 11px;
+    letter-spacing: 5px;
+    color: #c9a657;
+    text-transform: uppercase;
+    margin-bottom: 45px;
 }
 
 .countdown {
+    width: 100%;
+    max-width: 900px;
+    margin: 0 auto;
     display: grid;
-
-    grid-template-columns: repeat(4, 1fr);
-
-    gap: 8px;
-
-    margin-top: 30px;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 15px;
 }
 
-.time-box {
-    padding: 15px 5px;
-
-    border: 1px solid rgba(201, 166, 87, 0.18);
-
-    background: rgba(255, 255, 255, 0.015);
+.countdown-item {
+    min-width: 0;
+    padding: 25px 10px;
+    border-top: 1px solid rgba(201, 166, 87, 0.4);
+    border-bottom: 1px solid rgba(201, 166, 87, 0.4);
 }
 
-.time-box strong {
-    display: block;
-
-    font-size: 28px;
-
-    color: #c9a657;
-
-    font-weight: normal;
+.countdown-number {
+    font-family: "Times New Roman", serif;
+    font-size: clamp(30px, 7vw, 58px);
+    color: #f4f0e8;
+    font-weight: 400;
 }
 
-.time-box span {
-    display: block;
-
-    margin-top: 7px;
-
-    font-family: Arial, Helvetica, sans-serif;
-
-    font-size: 8px;
-
-    letter-spacing: 1px;
-
-    color: #777;
-}
-
-.pending {
-    margin-top: 22px;
-
-    color: #c9a657;
-
-    font-family: Arial, Helvetica, sans-serif;
-
-    font-size: 11px;
-
+.countdown-label {
+    margin-top: 8px;
+    font-family: Arial, sans-serif;
+    font-size: 9px;
     letter-spacing: 2px;
+    color: #918c82;
+    text-transform: uppercase;
 }
 
+/* =========================
+   FECHA
+========================= */
+
+.date-section {
+    width: 100%;
+    padding: 90px 20px;
+    text-align: center;
+    background: #11100e;
+    overflow: hidden;
+}
+
+.date-number {
+    font-family: "Times New Roman", serif;
+    font-size: clamp(65px, 15vw, 120px);
+    font-weight: 300;
+    color: #c9a657;
+    line-height: 1;
+}
+
+.date-month {
+    margin-top: 15px;
+    font-family: Arial, sans-serif;
+    font-size: 13px;
+    letter-spacing: 5px;
+    color: #d8d1c3;
+    text-transform: uppercase;
+}
+
+.date-year {
+    margin-top: 8px;
+    font-family: "Times New Roman", serif;
+    font-size: 28px;
+    color: #8d887d;
+}
 
 /* =========================
    DETALLES
 ========================= */
 
 .details-section {
+    width: 100%;
+    padding: 90px 20px;
+    background: #171613;
     text-align: center;
+    overflow: hidden;
+}
+
+.details-grid {
+    width: 100%;
+    max-width: 900px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 25px;
 }
 
 .detail-card {
-    display: flex;
-
-    align-items: center;
-
-    gap: 20px;
-
-    text-align: left;
-
-    padding: 22px 5px;
-
-    border-bottom: 1px solid rgba(255, 255, 255, 0.07);
+    min-width: 0;
+    padding: 40px 25px;
+    border: 1px solid rgba(201, 166, 87, 0.3);
 }
 
 .detail-icon {
-    width: 42px;
-    height: 42px;
-
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-    border: 1px solid rgba(201, 166, 87, 0.35);
-
+    font-size: 28px;
     color: #c9a657;
-
-    font-size: 12px;
-
-    flex-shrink: 0;
+    margin-bottom: 20px;
 }
 
-.detail-card h3 {
-    font-family: Arial, Helvetica, sans-serif;
-
+.detail-title {
+    font-family: Arial, sans-serif;
     font-size: 10px;
-
     letter-spacing: 3px;
-
-    color: #c9a657;
-
-    margin-bottom: 7px;
+    color: #8f897e;
+    text-transform: uppercase;
+    margin-bottom: 12px;
 }
 
-.detail-card p {
-    color: #aaa49a;
-
-    font-size: 16px;
+.detail-text {
+    font-family: "Times New Roman", serif;
+    font-size: 22px;
+    color: #eee8dc;
+    line-height: 1.3;
 }
-
 
 /* =========================
-   WHATSAPP
+   WHATSAPP / CONFIRMACIÓN
 ========================= */
 
 .rsvp-section {
-    padding-top: 50px;
-}
-
-.rsvp-box {
+    width: 100%;
+    padding: 100px 20px;
     text-align: center;
-
-    padding: 55px 25px;
-
-    border: 1px solid rgba(201, 166, 87, 0.3);
-
     background:
         radial-gradient(
             circle at center,
-            rgba(201, 166, 87, 0.08),
-            transparent 70%
+            #28231a 0%,
+            #11100e 65%
         );
+    overflow: hidden;
 }
 
-.rsvp-box > p:not(.section-label) {
-    color: #aaa49a;
-
-    line-height: 1.7;
-
-    margin-bottom: 28px;
+.rsvp-text {
+    max-width: 600px;
+    margin: 0 auto 35px;
+    font-family: "Times New Roman", serif;
+    font-size: clamp(24px, 5vw, 38px);
+    line-height: 1.3;
+    color: #f1ece2;
 }
 
 .whatsapp-button {
     display: inline-block;
-
+    max-width: 100%;
     text-decoration: none;
-
     border: 1px solid #c9a657;
-
-    color: #f5f1e8;
-
-    padding: 16px 24px;
-
-    font-family: Arial, Helvetica, sans-serif;
-
-    font-size: 10px;
-
-    letter-spacing: 2px;
-
-    transition:
-        background 0.3s ease,
-        color 0.3s ease;
+    padding: 17px 30px;
+    color: #e8dfcc;
+    font-family: Arial, sans-serif;
+    font-size: 11px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    transition: all 0.3s ease;
 }
 
 .whatsapp-button:hover {
     background: #c9a657;
-
-    color: #090909;
+    color: #11100e;
 }
-
 
 /* =========================
    FINAL
 ========================= */
 
 .final-section {
-    min-height: 80vh;
-
+    width: 100%;
+    min-height: 60vh;
+    min-height: 60dvh;
     display: flex;
-
-    flex-direction: column;
-
-    justify-content: center;
-
     align-items: center;
-
+    justify-content: center;
     text-align: center;
+    padding: 80px 20px;
+    background: #0d0c0a;
+    overflow: hidden;
+}
+
+.final-content {
+    width: 100%;
+    max-width: 700px;
 }
 
 .final-number {
-    font-size: 150px;
-
-    line-height: 1;
-
-    color: rgba(201, 166, 87, 0.1);
-
-    margin-bottom: -45px;
+    font-family: "Times New Roman", serif;
+    font-size: clamp(80px, 20vw, 170px);
+    font-weight: 300;
+    line-height: 0.8;
+    color: #c9a657;
+    margin-bottom: 30px;
 }
 
-.final-section h2 {
-    position: relative;
-
-    font-size: 42px;
-
-    line-height: 1;
-
-    font-weight: normal;
+.final-title {
+    font-family: "Times New Roman", serif;
+    font-size: clamp(30px, 7vw, 55px);
+    font-weight: 400;
+    color: #f4f0e8;
+    text-transform: uppercase;
 }
 
-.final-section p {
-    color: #888;
-
-    font-size: 14px;
-
-    line-height: 1.7;
+.final-text {
+    margin-top: 20px;
+    font-family: Arial, sans-serif;
+    font-size: 11px;
+    letter-spacing: 3px;
+    color: #8f897e;
 }
-
 
 /* =========================
    BOTÓN DE MÚSICA
@@ -622,92 +479,138 @@ a {
 
 .music-button {
     position: fixed;
-
-    right: 18px;
-    bottom: 18px;
-
+    right: 20px;
+    bottom: 20px;
     width: 48px;
     height: 48px;
-
     border-radius: 50%;
-
     border: 1px solid #c9a657;
-
-    background: #090909;
-
+    background: rgba(17, 16, 14, 0.95);
     color: #c9a657;
-
-    font-size: 20px;
-
-    z-index: 100;
-
-    cursor: pointer;
-
     display: none;
+    align-items: center;
+    justify-content: center;
+    font-size: 18px;
+    cursor: pointer;
+    z-index: 9999;
 }
 
 .music-button.visible {
-    display: block;
+    display: flex;
 }
-
 
 /* =========================
-   ANIMACIONES
+   RESPONSIVE
 ========================= */
 
-@keyframes fadeIn {
-
-    from {
-        opacity: 0;
-
-        transform: translateY(20px);
-    }
-
-    to {
-        opacity: 1;
-
-        transform: translateY(0);
-    }
-
-}
-
-.welcome-content > * {
-    animation: fadeIn 1s ease both;
-}
-
-.welcome-content .big-number {
-    animation: none;
-}
-
-
-/* =========================
-   TABLET / PC
-========================= */
-
-@media (min-width: 700px) {
+@media (max-width: 600px) {
 
     .welcome {
-        padding: 60px;
+        padding: 25px 15px;
     }
 
-    .welcome-content {
-        max-width: 650px;
+    .welcome-number {
+        letter-spacing: -5px;
     }
 
-    .portrait-section,
-    .hero-section,
-    .countdown-section,
-    .details-section,
-    .rsvp-section,
-    .final-section {
+    .welcome-lastname {
+        letter-spacing: 3px;
+    }
 
-        padding-left: 50px;
-        padding-right: 50px;
+    .open-button {
+        padding: 15px 24px;
+        font-size: 10px;
+    }
+
+    .portrait-section {
+        padding: 50px 15px;
     }
 
     .portrait-frame {
-        max-width: 430px;
+        width: min(82vw, 360px);
     }
 
+    .portrait-number {
+        width: 55px;
+        height: 55px;
+        right: -10px;
+        bottom: -15px;
+        font-size: 24px;
+    }
+
+    .hero {
+        min-height: 75vh;
+        min-height: 75dvh;
+        padding: 60px 15px;
+    }
+
+    .countdown-section,
+    .date-section,
+    .details-section,
+    .rsvp-section {
+        padding: 70px 15px;
+    }
+
+    .countdown {
+        gap: 6px;
+    }
+
+    .countdown-item {
+        padding: 18px 5px;
+    }
+
+    .countdown-label {
+        font-size: 8px;
+        letter-spacing: 1px;
+    }
+
+    .details-grid {
+        grid-template-columns: 1fr;
+        gap: 15px;
+    }
+
+    .detail-card {
+        padding: 30px 20px;
+    }
+
+    .detail-text {
+        font-size: 20px;
+    }
+
+    .final-section {
+        padding: 60px 15px;
+    }
+
+    .music-button {
+        right: 15px;
+        bottom: 15px;
+    }
 }
-```
+
+/* =========================
+   PANTALLAS MUY PEQUEÑAS
+========================= */
+
+@media (max-width: 380px) {
+
+    .countdown-number {
+        font-size: 27px;
+    }
+
+    .countdown-label {
+        font-size: 7px;
+    }
+
+    .welcome-name {
+        font-size: 25px;
+    }
+
+    .welcome-lastname {
+        font-size: 10px;
+        letter-spacing: 2px;
+    }
+
+    .portrait-frame {
+        width: 78vw;
+    }
+}
