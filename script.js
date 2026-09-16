@@ -1,299 +1,285 @@
-/* =========================================
-   CONFIGURACIÓN
-========================================= */
+// ===============================
+// CONFIGURACIÓN
+// ===============================
 
-/*
-   CAMBIA ESTA FECHA.
-
-   Formato:
-   AÑO-MES-DÍA T HORA:MINUTO:SEGUNDO
-
-   Ejemplo:
-   "2026-12-25T20:00:00"
-*/
-
+// Cuando tengas la fecha real, cámbiala aquí.
+// Formato: Año-Mes-DíaTHora:Minuto:Segundo
 const birthdayDate = new Date("2026-12-25T20:00:00");
 
 
-/* =========================================
-   ELEMENTOS
-========================================= */
+// ===============================
+// ELEMENTOS
+// ===============================
 
-const welcomeScreen =
-    document.getElementById("welcomeScreen");
+const welcomeScreen = document.getElementById("welcomeScreen");
+const openInvitation = document.getElementById("openInvitation");
+const invitation = document.getElementById("invitation");
 
-const openInvitation =
-    document.getElementById("openInvitation");
+const musicButton = document.getElementById("musicButton");
+const backgroundMusic = document.getElementById("backgroundMusic");
 
-const mainContent =
-    document.getElementById("mainContent");
-
-const surpriseButton =
-    document.getElementById("surpriseButton");
-
-const surpriseContent =
-    document.getElementById("surpriseContent");
-
-const musicButton =
-    document.getElementById("musicButton");
-
-const backgroundMusic =
-    document.getElementById("backgroundMusic");
+const daysElement = document.getElementById("days");
+const hoursElement = document.getElementById("hours");
+const minutesElement = document.getElementById("minutes");
+const secondsElement = document.getElementById("seconds");
 
 
-/* =========================================
-   ABRIR INVITACIÓN
-========================================= */
+// ===============================
+// ABRIR INVITACIÓN
+// ===============================
 
 openInvitation.addEventListener("click", () => {
 
     welcomeScreen.classList.add("hide");
+    invitation.classList.add("show");
 
-    mainContent.classList.remove("hidden");
+    document.body.classList.remove("no-scroll");
 
-    document.body.style.overflow = "auto";
-
-    createConfetti();
-
-    /*
-       Los navegadores suelen bloquear
-       reproducción automática.
-
-       Por eso intentamos reproducirla
-       después del clic del usuario.
-    */
-
+    // Intentar iniciar música
     backgroundMusic.volume = 0.35;
 
     backgroundMusic.play()
         .then(() => {
-
-            musicButton.textContent = "🔊";
-
+            musicButton.classList.add("playing");
+            musicButton.textContent = "♫";
         })
         .catch(() => {
-
-            musicButton.textContent = "🔇";
-
+            console.log("El navegador bloqueó el inicio automático de la música.");
         });
 
-});
+    lanzarConfeti();
 
-
-/* =========================================
-   MÚSICA
-========================================= */
-
-musicButton.addEventListener("click", () => {
-
-    if (backgroundMusic.paused) {
-
-        backgroundMusic.play();
-
-        musicButton.textContent = "🔊";
-
-    } else {
-
-        backgroundMusic.pause();
-
-        musicButton.textContent = "🔇";
-
-    }
+    setTimeout(() => {
+        welcomeScreen.style.display = "none";
+    }, 1000);
 
 });
 
 
-/* =========================================
-   CUENTA REGRESIVA
-========================================= */
+// ===============================
+// CUENTA REGRESIVA
+// ===============================
 
 function updateCountdown() {
 
-    const now = new Date();
+    const now = new Date().getTime();
+    const target = birthdayDate.getTime();
 
-    const difference =
-        birthdayDate.getTime() - now.getTime();
-
+    const difference = target - now;
 
     if (difference <= 0) {
 
-        document.getElementById("days").textContent = "00";
-        document.getElementById("hours").textContent = "00";
-        document.getElementById("minutes").textContent = "00";
-        document.getElementById("seconds").textContent = "00";
+        daysElement.textContent = "00";
+        hoursElement.textContent = "00";
+        minutesElement.textContent = "00";
+        secondsElement.textContent = "00";
 
         return;
-
     }
 
+    const days = Math.floor(
+        difference / (1000 * 60 * 60 * 24)
+    );
 
-    const days =
-        Math.floor(
-            difference / (1000 * 60 * 60 * 24)
-        );
+    const hours = Math.floor(
+        (difference / (1000 * 60 * 60)) % 24
+    );
 
+    const minutes = Math.floor(
+        (difference / (1000 * 60)) % 60
+    );
 
-    const hours =
-        Math.floor(
-            (difference / (1000 * 60 * 60)) % 24
-        );
+    const seconds = Math.floor(
+        (difference / 1000) % 60
+    );
 
-
-    const minutes =
-        Math.floor(
-            (difference / (1000 * 60)) % 60
-        );
-
-
-    const seconds =
-        Math.floor(
-            (difference / 1000) % 60
-        );
-
-
-    document.getElementById("days").textContent =
-        String(days).padStart(2, "0");
-
-
-    document.getElementById("hours").textContent =
-        String(hours).padStart(2, "0");
-
-
-    document.getElementById("minutes").textContent =
-        String(minutes).padStart(2, "0");
-
-
-    document.getElementById("seconds").textContent =
-        String(seconds).padStart(2, "0");
-
+    daysElement.textContent = String(days).padStart(2, "0");
+    hoursElement.textContent = String(hours).padStart(2, "0");
+    minutesElement.textContent = String(minutes).padStart(2, "0");
+    secondsElement.textContent = String(seconds).padStart(2, "0");
 }
-
 
 updateCountdown();
 
 setInterval(updateCountdown, 1000);
 
 
-/* =========================================
-   SORPRESA
-========================================= */
+// ===============================
+// MÚSICA
+// ===============================
 
-surpriseButton.addEventListener("click", () => {
+let musicPlaying = false;
 
-    const isVisible =
-        surpriseContent.classList.contains("show");
+musicButton.addEventListener("click", () => {
 
+    if (musicPlaying) {
 
-    if (isVisible) {
+        backgroundMusic.pause();
 
-        surpriseContent.classList.remove("show");
+        musicPlaying = false;
 
-        surpriseButton.textContent =
-            "✨ Abrir sorpresa";
+        musicButton.textContent = "♪";
+        musicButton.classList.remove("playing");
 
     } else {
 
-        surpriseContent.classList.add("show");
+        backgroundMusic.play()
+            .then(() => {
 
-        surpriseButton.textContent =
-            "🔒 Cerrar sorpresa";
+                musicPlaying = true;
 
-        createConfetti();
+                musicButton.textContent = "♫";
+                musicButton.classList.add("playing");
+
+            })
+            .catch(() => {
+
+                alert(
+                    "No se pudo reproducir la música. " +
+                    "Asegúrate de tener el archivo cumpleanos.mp3 dentro de la carpeta music."
+                );
+
+            });
 
     }
 
 });
 
 
-/* =========================================
-   CONFETI
-========================================= */
+// ===============================
+// ACTUALIZAR ESTADO DE MÚSICA
+// ===============================
 
-function createConfetti() {
+backgroundMusic.addEventListener("play", () => {
 
-    const confettiCount = 80;
+    musicPlaying = true;
 
-    for (let i = 0; i < confettiCount; i++) {
+    musicButton.textContent = "♫";
+    musicButton.classList.add("playing");
 
-        const piece =
-            document.createElement("div");
+});
 
-        piece.style.position = "fixed";
-        piece.style.left =
-            Math.random() * 100 + "vw";
+backgroundMusic.addEventListener("pause", () => {
 
-        piece.style.top = "-20px";
+    musicPlaying = false;
 
-        piece.style.width =
-            Math.random() * 8 + 5 + "px";
+    musicButton.textContent = "♪";
+    musicButton.classList.remove("playing");
 
-        piece.style.height =
-            Math.random() * 14 + 8 + "px";
-
-        piece.style.background =
-            [
-                "#d85d72",
-                "#f2b7c3",
-                "#241f20",
-                "#f1d4c8",
-                "#dca34a"
-            ][
-                Math.floor(Math.random() * 5)
-            ];
-
-        piece.style.zIndex = "2000";
-
-        piece.style.borderRadius = "3px";
-
-        piece.style.pointerEvents = "none";
-
-        document.body.appendChild(piece);
+});
 
 
-        const duration =
-            Math.random() * 3 + 2;
+// ===============================
+// CONFETI
+// ===============================
 
-        const horizontalMovement =
-            (Math.random() - 0.5) * 300;
+function lanzarConfeti() {
 
+    const cantidad = 100;
 
-        piece.animate(
+    for (let i = 0; i < cantidad; i++) {
 
-            [
-                {
-                    transform:
-                        "translate(0, 0) rotate(0deg)",
-                    opacity: 1
-                },
+        const confeti = document.createElement("div");
 
-                {
-                    transform:
-                        `translate(${horizontalMovement}px, 110vh) rotate(720deg)`,
-                    opacity: 0
-                }
-            ],
+        confeti.className = "confeti";
 
-            {
-                duration: duration * 1000,
-                easing: "cubic-bezier(.2,.7,.3,1)"
-            }
+        confeti.style.left = Math.random() * 100 + "vw";
 
-        );
+        confeti.style.animationDuration =
+            (Math.random() * 3 + 2) + "s";
 
+        confeti.style.animationDelay =
+            Math.random() * 1.5 + "s";
+
+        confeti.style.transform =
+            `rotate(${Math.random() * 360}deg)`;
+
+        document.body.appendChild(confeti);
 
         setTimeout(() => {
-
-            piece.remove();
-
-        }, duration * 1000);
+            confeti.remove();
+        }, 6000);
 
     }
 
 }
 
 
-/* =========================================
-   EVITAR SCROLL AL INICIO
-========================================= */
+// ===============================
+// ANIMACIONES AL HACER SCROLL
+// ===============================
 
-document.body.style.overflow = "hidden";
+const observer = new IntersectionObserver(
+    (entries) => {
+
+        entries.forEach((entry) => {
+
+            if (entry.isIntersecting) {
+
+                entry.target.classList.add("visible");
+
+            }
+
+        });
+
+    },
+    {
+        threshold: 0.15
+    }
+);
+
+
+// Observar elementos
+document.querySelectorAll(
+    ".section, .detail-card, .photo, .age-section"
+).forEach((element) => {
+
+    element.classList.add("scroll-hidden");
+
+    observer.observe(element);
+
+});
+
+
+// ===============================
+// EFECTO PARALLAX SUAVE
+// ===============================
+
+window.addEventListener("scroll", () => {
+
+    const hero = document.querySelector(".hero");
+
+    if (!hero) return;
+
+    const scrollPosition = window.scrollY;
+
+    if (scrollPosition < window.innerHeight) {
+
+        hero.style.backgroundPosition =
+            `center ${scrollPosition * 0.25}px`;
+
+    }
+
+});
+
+
+// ===============================
+// PREVENIR SCROLL AL INICIO
+// ===============================
+
+document.body.classList.add("no-scroll");
+
+
+// ===============================
+// DOBLE CLICK PARA CONFETI
+// ===============================
+
+document.addEventListener("dblclick", () => {
+
+    if (invitation.classList.contains("show")) {
+
+        lanzarConfeti();
+
+    }
+
+});
