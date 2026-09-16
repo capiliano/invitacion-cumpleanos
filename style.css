@@ -11,10 +11,14 @@ html {
 }
 
 body {
+    width: 100%;
+    min-height: 100vh;
+    overflow-x: hidden;
+
     background: #080808;
     color: #f4f1e8;
+
     font-family: 'Montserrat', sans-serif;
-    overflow-x: hidden;
 }
 
 body.no-scroll {
@@ -23,7 +27,7 @@ body.no-scroll {
 
 
 /* =========================================
-   PANTALLA DE BIENVENIDA
+   PANTALLA INICIAL
 ========================================= */
 
 .welcome-screen {
@@ -35,11 +39,13 @@ body.no-scroll {
     align-items: center;
     justify-content: center;
 
+    padding: 30px;
+
     background:
         radial-gradient(
             circle at center,
-            #252525 0%,
-            #080808 65%
+            #292929 0%,
+            #080808 70%
         );
 
     transition:
@@ -53,67 +59,82 @@ body.no-scroll {
 }
 
 .welcome-content {
-    width: min(90%, 600px);
-    text-align: center;
+    width: 100%;
+    max-width: 600px;
+
     padding: 30px;
+
+    text-align: center;
 }
 
 .gold-line {
-    width: 100px;
+    width: 90px;
     height: 1px;
-    background: #c9a45c;
+
     margin: 25px auto;
+
+    background: #c9a45c;
 }
 
 .small-title,
 .section-label,
 .eyebrow {
-    letter-spacing: 4px;
-    font-size: 11px;
     color: #c9a45c;
+
+    font-size: 10px;
     font-weight: 500;
+
+    letter-spacing: 4px;
+
+    line-height: 1.6;
 }
 
 .welcome-content h1 {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 27px;
-    font-weight: 400;
     margin-top: 30px;
+
+    font-family: 'Cormorant Garamond', serif;
+
+    font-size: 28px;
+    font-weight: 400;
 }
 
 .welcome-content h2 {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: clamp(40px, 9vw, 70px);
-    line-height: .9;
-    font-weight: 600;
     margin: 20px 0;
+
+    font-family: 'Cormorant Garamond', serif;
+
+    font-size: clamp(42px, 10vw, 70px);
+    font-weight: 600;
+
+    line-height: .9;
 }
 
 .welcome-text {
-    color: #aaa;
-    font-size: 13px;
+    max-width: 450px;
+
     margin: 25px auto;
+
+    color: #aaa;
+
+    font-size: 13px;
+
     line-height: 1.8;
 }
 
-
-/* =========================================
-   BOTONES
-========================================= */
-
-button {
-    font-family: 'Montserrat', sans-serif;
-}
-
 #openInvitation {
-    border: 1px solid #c9a45c;
-    background: transparent;
-    color: #fff;
-
     padding: 15px 30px;
 
+    border: 1px solid #c9a45c;
+
+    background: transparent;
+
+    color: #fff;
+
+    font-family: 'Montserrat', sans-serif;
+
+    font-size: 10px;
+
     letter-spacing: 3px;
-    font-size: 11px;
 
     cursor: pointer;
 
@@ -132,6 +153,8 @@ button {
 
 .invitation {
     display: none;
+
+    width: 100%;
 }
 
 .invitation.show {
@@ -140,26 +163,30 @@ button {
 
 
 /* =========================================
-   HERO / PORTADA
+   PORTADA
 ========================================= */
 
 .hero {
-    min-height: 100vh;
-
     position: relative;
 
+    width: 100%;
+    min-height: 100vh;
+
     display: flex;
+
     align-items: center;
     justify-content: center;
 
-    background:
-        linear-gradient(
-            rgba(0,0,0,.65),
-            rgba(0,0,0,.9)
-        ),
-        url("img/foto1.jpg") center / cover;
+    padding: 40px 25px;
 
     text-align: center;
+
+    background:
+        linear-gradient(
+            rgba(0,0,0,.62),
+            rgba(0,0,0,.9)
+        ),
+        url("img/foto1.jpg") center / cover no-repeat;
 }
 
 .hero-overlay {
@@ -168,9 +195,9 @@ button {
 
     background:
         radial-gradient(
-            circle,
-            transparent 10%,
-            rgba(0,0,0,.7) 90%
+            circle at center,
+            transparent 0%,
+            rgba(0,0,0,.65) 100%
         );
 }
 
@@ -179,19 +206,21 @@ button {
     z-index: 2;
 
     width: 100%;
-    max-width: 900px;
+    max-width: 850px;
 
-    padding: 40px 30px;
+    margin: 0 auto;
+
+    padding: 30px;
 }
 
 .hero h1 {
     font-family: 'Cormorant Garamond', serif;
 
-    font-size: clamp(150px, 40vw, 280px);
-
-    line-height: .65;
+    font-size: clamp(150px, 35vw, 280px);
 
     font-weight: 500;
+
+    line-height: .65;
 
     color: #d2b36c;
 }
@@ -199,49 +228,53 @@ button {
 .years {
     display: block;
 
-    letter-spacing: 12px;
+    margin-top: 25px;
 
-    margin-top: 20px;
+    color: #f4f1e8;
 
-    font-size: 13px;
+    font-size: 12px;
+
+    letter-spacing: 10px;
 }
 
 .separator {
     width: 70px;
     height: 1px;
 
-    background: #c9a45c;
-
     margin: 30px auto;
+
+    background: #c9a45c;
 }
 
 .hero h2 {
+    max-width: 700px;
+
+    margin: 0 auto 25px;
+
     font-family: 'Cormorant Garamond', serif;
 
     font-size: clamp(38px, 8vw, 70px);
 
-    line-height: .95;
-
     font-weight: 600;
 
-    margin-bottom: 25px;
+    line-height: .95;
 }
 
 .hero p {
-    font-size: 13px;
-
-    color: #d0d0d0;
-
-    line-height: 1.8;
-
     max-width: 500px;
 
     margin: 0 auto;
+
+    color: #ccc;
+
+    font-size: 13px;
+
+    line-height: 1.8;
 }
 
 
 /* =========================================
-   SECCIONES GENERALES
+   TODAS LAS SECCIONES
 ========================================= */
 
 .section {
@@ -252,23 +285,34 @@ button {
     text-align: center;
 }
 
+.section > * {
+    width: 100%;
+
+    max-width: 900px;
+
+    margin-left: auto;
+    margin-right: auto;
+}
+
 .section h2 {
+    margin-top: 15px;
+
     font-family: 'Cormorant Garamond', serif;
 
-    font-size: clamp(38px, 7vw, 60px);
+    font-size: clamp(40px, 8vw, 65px);
 
     font-weight: 500;
 
-    margin-top: 15px;
+    line-height: 1;
 }
 
 .gold-divider {
-    width: 55px;
+    width: 55px !important;
     height: 1px;
 
-    background: #c9a45c;
+    margin: 25px auto !important;
 
-    margin: 25px auto;
+    background: #c9a45c;
 }
 
 
@@ -277,16 +321,19 @@ button {
 ========================================= */
 
 .message-section {
-    background: #0c0c0c;
+    padding: 100px 24px;
 
-    padding-left: 24px;
-    padding-right: 24px;
+    background: #0c0c0c;
 }
 
-.message {
+.message-section .message {
+    width: 100%;
+
     max-width: 650px;
 
     margin: 20px auto;
+
+    padding: 0 10px;
 
     color: #bcbcbc;
 
@@ -299,10 +346,12 @@ button {
 
 
 /* =========================================
-   SECCIÓN 50 AÑOS
+   50 AÑOS
 ========================================= */
 
 .age-section {
+    width: 100%;
+
     min-height: 500px;
 
     display: flex;
@@ -312,16 +361,16 @@ button {
     align-items: center;
     justify-content: center;
 
-    text-align: center;
-
     padding: 80px 24px;
+
+    text-align: center;
 
     background:
         linear-gradient(
             135deg,
-            #111 0%,
-            #1b1b1b 50%,
-            #090909 100%
+            #111,
+            #1b1b1b,
+            #090909
         );
 }
 
@@ -330,11 +379,11 @@ button {
 
     font-size: clamp(180px, 45vw, 350px);
 
+    font-weight: 500;
+
     line-height: .7;
 
     color: #c9a45c;
-
-    font-weight: 500;
 }
 
 .age-text {
@@ -346,21 +395,21 @@ button {
 
     margin-top: 50px;
 
-    letter-spacing: 5px;
+    color: #aaa;
 
     font-size: 11px;
 
-    color: #aaa;
+    letter-spacing: 5px;
 }
 
 .age-text strong {
+    color: #f4f1e8;
+
     font-family: 'Cormorant Garamond', serif;
 
     font-size: 35px;
 
     letter-spacing: 5px;
-
-    color: #f4f1e8;
 }
 
 
@@ -374,24 +423,25 @@ button {
 }
 
 .countdown {
-    width: 100%;
+    width: 100% !important;
 
-    max-width: 700px;
+    max-width: 700px !important;
 
-    margin: 50px auto 30px;
+    margin: 50px auto 30px !important;
 
     display: grid;
 
-    grid-template-columns:
-        repeat(4, 1fr);
+    grid-template-columns: repeat(4, 1fr);
 
     gap: 12px;
 }
 
 .count-box {
-    border: 1px solid #292929;
+    width: 100%;
 
     padding: 25px 10px;
+
+    border: 1px solid #292929;
 
     background: #101010;
 }
@@ -399,11 +449,11 @@ button {
 .count-box span {
     display: block;
 
+    color: #c9a45c;
+
     font-family: 'Cormorant Garamond', serif;
 
     font-size: clamp(35px, 7vw, 55px);
-
-    color: #c9a45c;
 }
 
 .count-box small {
@@ -411,11 +461,11 @@ button {
 
     margin-top: 8px;
 
+    color: #888;
+
     font-size: 9px;
 
     letter-spacing: 2px;
-
-    color: #888;
 }
 
 .date-note {
@@ -432,31 +482,32 @@ button {
 ========================================= */
 
 .gallery-section {
-    background: #0c0c0c;
-
     padding-left: 24px;
     padding-right: 24px;
+
+    background: #0c0c0c;
 }
 
 .gallery {
-    width: 100%;
+    width: 100% !important;
 
-    max-width: 1000px;
+    max-width: 1000px !important;
 
-    margin: 50px auto 0;
+    margin: 50px auto 0 !important;
 
     display: grid;
 
-    grid-template-columns:
-        repeat(3, 1fr);
+    grid-template-columns: repeat(3, 1fr);
 
     gap: 15px;
 }
 
 .photo {
-    overflow: hidden;
+    width: 100%;
 
     aspect-ratio: 3 / 4;
+
+    overflow: hidden;
 
     background: #161616;
 }
@@ -465,19 +516,15 @@ button {
     width: 100%;
     height: 100%;
 
-    object-fit: cover;
-
     display: block;
 
-    transition:
-        transform .6s ease,
-        filter .6s ease;
+    object-fit: cover;
+
+    transition: transform .6s ease;
 }
 
 .photo:hover img {
     transform: scale(1.06);
-
-    filter: brightness(.8);
 }
 
 
@@ -491,26 +538,29 @@ button {
 }
 
 .details {
-    width: 100%;
+    width: 100% !important;
 
-    max-width: 1000px;
+    max-width: 1000px !important;
 
-    margin: 50px auto 0;
+    margin: 50px auto 0 !important;
 
     display: grid;
 
-    grid-template-columns:
-        repeat(3, 1fr);
+    grid-template-columns: repeat(3, 1fr);
 
     gap: 20px;
 }
 
 .detail-card {
-    border: 1px solid #252525;
+    width: 100%;
 
     padding: 35px 20px;
 
+    border: 1px solid #252525;
+
     background: #101010;
+
+    text-align: center;
 
     transition: transform .3s ease;
 }
@@ -520,19 +570,19 @@ button {
 }
 
 .detail-icon {
-    font-size: 25px;
-
     margin-bottom: 18px;
+
+    font-size: 25px;
 }
 
 .detail-card h3 {
+    margin-bottom: 12px;
+
     color: #c9a45c;
 
     font-size: 10px;
 
     letter-spacing: 3px;
-
-    margin-bottom: 12px;
 }
 
 .detail-card p {
@@ -545,10 +595,12 @@ button {
 
 
 /* =========================================
-   RSVP
+   CONFIRMACIÓN
 ========================================= */
 
 .rsvp-section {
+    width: 100%;
+
     min-height: 500px;
 
     display: flex;
@@ -556,41 +608,48 @@ button {
     align-items: center;
     justify-content: center;
 
-    text-align: center;
-
     padding: 80px 24px;
+
+    text-align: center;
 
     background:
         radial-gradient(
             circle at center,
             #222 0%,
-            #090909 65%
+            #090909 70%
         );
 }
 
 .rsvp-content {
     width: 100%;
+
     max-width: 650px;
+
+    margin: 0 auto;
 }
 
 .rsvp-content h2 {
+    margin: 15px auto 25px;
+
     font-family: 'Cormorant Garamond', serif;
 
     font-size: clamp(40px, 8vw, 65px);
 
     font-weight: 500;
 
-    margin: 15px 0 25px;
+    line-height: 1;
 }
 
 .rsvp-content > p:not(.section-label) {
+    max-width: 550px;
+
+    margin: 0 auto 35px;
+
     color: #aaa;
 
     font-size: 13px;
 
     line-height: 1.9;
-
-    margin-bottom: 35px;
 }
 
 .whatsapp-button {
@@ -619,7 +678,7 @@ button {
 
 
 /* =========================================
-   BOTÓN DE MÚSICA
+   MÚSICA
 ========================================= */
 
 .music-button {
@@ -628,22 +687,22 @@ button {
     right: 20px;
     bottom: 20px;
 
+    z-index: 5000;
+
     width: 50px;
     height: 50px;
 
-    border-radius: 50%;
-
     border: 1px solid #c9a45c;
 
-    background: rgba(10,10,10,.9);
+    border-radius: 50%;
+
+    background: rgba(10,10,10,.92);
 
     color: #c9a45c;
 
     font-size: 20px;
 
     cursor: pointer;
-
-    z-index: 5000;
 
     transition: .3s;
 }
@@ -682,29 +741,31 @@ button {
 ========================================= */
 
 footer {
-    text-align: center;
+    width: 100%;
 
     padding: 70px 24px;
+
+    text-align: center;
 
     background: #060606;
 }
 
 footer p {
-    color: #aaa;
+    margin-bottom: 15px;
 
-    letter-spacing: 4px;
+    color: #aaa;
 
     font-size: 10px;
 
-    margin-bottom: 15px;
+    letter-spacing: 4px;
 }
 
 footer strong {
     display: block;
 
-    font-family: 'Cormorant Garamond', serif;
-
     color: #c9a45c;
+
+    font-family: 'Cormorant Garamond', serif;
 
     font-size: 40px;
 
@@ -714,16 +775,16 @@ footer strong {
 footer span {
     display: block;
 
+    margin-top: 15px;
+
     color: #777;
 
     font-size: 11px;
-
-    margin-top: 15px;
 }
 
 
 /* =========================================
-   ANIMACIONES AL HACER SCROLL
+   ANIMACIONES
 ========================================= */
 
 .scroll-hidden {
@@ -755,21 +816,21 @@ footer span {
     width: 7px;
     height: 12px;
 
-    background: #c9a45c;
-
     z-index: 10000;
 
     pointer-events: none;
+
+    background: #c9a45c;
 
     animation: caer linear forwards;
 }
 
 .confeti:nth-child(3n) {
-    background: #ffffff;
+    background: #fff;
 }
 
 .confeti:nth-child(3n + 1) {
-    background: #777777;
+    background: #777;
 }
 
 @keyframes caer {
@@ -794,7 +855,7 @@ footer span {
 
 
 /* =========================================
-   TABLETS
+   TABLET / PC
 ========================================= */
 
 @media (min-width: 768px) {
@@ -812,60 +873,29 @@ footer span {
         padding-right: 60px;
     }
 
-    .hero-content {
-        padding-left: 60px;
-        padding-right: 60px;
-    }
-
 }
 
 
 /* =========================================
-   CELULARES
+   CELULAR
 ========================================= */
 
 @media (max-width: 600px) {
 
-    .section {
-        padding-top: 75px;
-        padding-bottom: 75px;
-
-        padding-left: 24px;
-        padding-right: 24px;
+    .welcome-screen {
+        padding: 20px;
     }
 
-    .countdown {
-        gap: 7px;
+    .welcome-content {
+        padding: 20px;
     }
 
-    .count-box {
-        padding: 20px 5px;
+    .hero {
+        padding: 30px 20px;
     }
 
-    .count-box span {
-        font-size: 30px;
-    }
-
-    .count-box small {
-        font-size: 7px;
-
-        letter-spacing: 1px;
-    }
-
-    .gallery {
-        grid-template-columns: 1fr;
-
-        max-width: 450px;
-    }
-
-    .photo {
-        aspect-ratio: 4 / 5;
-    }
-
-    .details {
-        grid-template-columns: 1fr;
-
-        max-width: 450px;
+    .hero-content {
+        padding: 20px 15px;
     }
 
     .hero h1 {
@@ -880,11 +910,62 @@ footer span {
         letter-spacing: 8px;
     }
 
+    .section,
+    .message-section,
+    .countdown-section,
+    .gallery-section,
+    .details-section {
+        padding-left: 28px;
+        padding-right: 28px;
+    }
+
+    .message-section .message {
+        padding: 0;
+    }
+
+    .countdown {
+        gap: 6px;
+    }
+
+    .count-box {
+        padding: 20px 4px;
+    }
+
+    .count-box span {
+        font-size: 29px;
+    }
+
+    .count-box small {
+        font-size: 7px;
+
+        letter-spacing: 1px;
+    }
+
+    .gallery {
+        grid-template-columns: 1fr;
+
+        max-width: 450px !important;
+    }
+
+    .photo {
+        aspect-ratio: 4 / 5;
+    }
+
+    .details {
+        grid-template-columns: 1fr;
+
+        max-width: 450px !important;
+    }
+
+    .detail-card {
+        padding: 30px 20px;
+    }
+
 }
 
 
 /* =========================================
-   PANTALLAS MUY PEQUEÑAS
+   CELULARES PEQUEÑOS
 ========================================= */
 
 @media (max-width: 380px) {
@@ -894,13 +975,22 @@ footer span {
     .countdown-section,
     .gallery-section,
     .details-section {
-        padding-left: 20px;
-        padding-right: 20px;
+        padding-left: 24px;
+        padding-right: 24px;
+    }
+
+    .hero {
+        padding-left: 18px;
+        padding-right: 18px;
     }
 
     .hero-content {
-        padding-left: 20px;
-        padding-right: 20px;
+        padding-left: 10px;
+        padding-right: 10px;
+    }
+
+    .hero h1 {
+        font-size: 150px;
     }
 
     .countdown {
@@ -908,11 +998,11 @@ footer span {
     }
 
     .count-box {
-        padding: 17px 3px;
+        padding: 16px 2px;
     }
 
     .count-box span {
-        font-size: 26px;
+        font-size: 25px;
     }
 
     .count-box small {
