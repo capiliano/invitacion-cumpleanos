@@ -1,3 +1,4 @@
+```javascript
 document.addEventListener("DOMContentLoaded", () => {
 
     /* =========================
@@ -37,28 +38,28 @@ document.addEventListener("DOMContentLoaded", () => {
     openButton.addEventListener("click", async () => {
 
         /*
-         * Ocultamos la pantalla inicial.
+         * Ocultar pantalla inicial.
          */
 
         welcome.style.display = "none";
 
 
         /*
-         * Mostramos la invitación.
+         * Mostrar invitación.
          */
 
         invitation.classList.add("active");
 
 
         /*
-         * Mostramos el botón de música.
+         * Mostrar botón de música.
          */
 
         musicButton.classList.add("visible");
 
 
         /*
-         * Llevamos al usuario al inicio
+         * Llevar al usuario al inicio
          * de la invitación.
          */
 
@@ -69,11 +70,11 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
         /*
-         * IMPORTANTE:
+         * Iniciar música.
          *
-         * Como esta función ocurre después
-         * de que el usuario presionó el botón,
-         * el navegador permite iniciar el audio.
+         * Como sucede después del clic
+         * del usuario, el navegador permite
+         * reproducir el audio.
          */
 
         try {
@@ -93,6 +94,10 @@ document.addEventListener("DOMContentLoaded", () => {
                 error
             );
 
+            musicPlaying = false;
+
+            musicButton.textContent = "♪";
+
         }
 
     });
@@ -102,20 +107,16 @@ document.addEventListener("DOMContentLoaded", () => {
        MÚSICA EN BUCLE
     ========================== */
 
-    /*
-     * El atributo "loop" del HTML hace que
-     * la canción vuelva a comenzar automáticamente
-     * cuando termina.
-     *
-     * Este evento también sirve como respaldo.
-     */
-
     music.addEventListener("ended", () => {
 
         music.currentTime = 0;
 
         music.play().catch(() => {
-            console.log("No se pudo reiniciar la música.");
+
+            console.log(
+                "No se pudo reiniciar la música."
+            );
+
         });
 
     });
@@ -172,25 +173,116 @@ document.addEventListener("DOMContentLoaded", () => {
     ========================== */
 
     /*
-     * Todavía no tenemos la fecha real
-     * del cumpleaños.
+     * Fecha del evento:
      *
-     * Por eso mostramos "--".
+     * 5 de octubre de 2026
+     *
+     * Como todavía no tenemos la hora
+     * del evento, el contador llega a cero
+     * al comenzar el día 5 de octubre.
      */
 
-    function countdownDisabled() {
+    const eventDate = new Date(
+        "2026-10-05T00:00:00"
+    );
 
-        days.textContent = "--";
 
-        hours.textContent = "--";
+    function updateCountdown() {
 
-        minutes.textContent = "--";
+        const now = new Date();
 
-        seconds.textContent = "--";
+        const difference =
+            eventDate.getTime() - now.getTime();
+
+
+        /*
+         * Si ya llegó la fecha:
+         */
+
+        if (difference <= 0) {
+
+            days.textContent = "00";
+
+            hours.textContent = "00";
+
+            minutes.textContent = "00";
+
+            seconds.textContent = "00";
+
+            return;
+
+        }
+
+
+        /*
+         * Cálculo del tiempo restante.
+         */
+
+        const totalSeconds =
+            Math.floor(difference / 1000);
+
+
+        const totalMinutes =
+            Math.floor(totalSeconds / 60);
+
+
+        const totalHours =
+            Math.floor(totalMinutes / 60);
+
+
+        const totalDays =
+            Math.floor(totalHours / 24);
+
+
+        const remainingHours =
+            totalHours % 24;
+
+
+        const remainingMinutes =
+            totalMinutes % 60;
+
+
+        const remainingSeconds =
+            totalSeconds % 60;
+
+
+        /*
+         * Mostrar resultados.
+         */
+
+        days.textContent =
+            String(totalDays).padStart(2, "0");
+
+
+        hours.textContent =
+            String(remainingHours).padStart(2, "0");
+
+
+        minutes.textContent =
+            String(remainingMinutes).padStart(2, "0");
+
+
+        seconds.textContent =
+            String(remainingSeconds).padStart(2, "0");
 
     }
 
-    countdownDisabled();
+
+    /*
+     * Actualizar inmediatamente.
+     */
+
+    updateCountdown();
+
+
+    /*
+     * Actualizar cada segundo.
+     */
+
+    setInterval(
+        updateCountdown,
+        1000
+    );
 
 
     /* =========================
@@ -201,35 +293,61 @@ document.addEventListener("DOMContentLoaded", () => {
 
         for (let i = 0; i < 12; i++) {
 
-            const particle = document.createElement("div");
+            const particle =
+                document.createElement("div");
 
-            particle.style.position = "fixed";
 
-            particle.style.width = "6px";
+            particle.style.position =
+                "fixed";
 
-            particle.style.height = "6px";
 
-            particle.style.background = "#c9a657";
+            particle.style.width =
+                "6px";
 
-            particle.style.borderRadius = "50%";
 
-            particle.style.left = "50%";
+            particle.style.height =
+                "6px";
 
-            particle.style.top = "50%";
 
-            particle.style.zIndex = "9999";
+            particle.style.background =
+                "#c9a657";
 
-            particle.style.pointerEvents = "none";
+
+            particle.style.borderRadius =
+                "50%";
+
+
+            particle.style.left =
+                "50%";
+
+
+            particle.style.top =
+                "50%";
+
+
+            particle.style.zIndex =
+                "9999";
+
+
+            particle.style.pointerEvents =
+                "none";
 
 
             const angle =
-                Math.random() * Math.PI * 2;
+                Math.random() *
+                Math.PI *
+                2;
+
 
             const distance =
-                80 + Math.random() * 160;
+                80 +
+                Math.random() *
+                160;
 
 
-            document.body.appendChild(particle);
+            document.body.appendChild(
+                particle
+            );
 
 
             particle.animate(
@@ -273,3 +391,4 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
 });
+```
