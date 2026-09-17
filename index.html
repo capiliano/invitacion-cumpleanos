@@ -13,6 +13,15 @@
         Joel Rene Lojano Barrera | 50 años
     </title>
 
+    <!-- TIPOGRAFÍAS -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Montserrat:wght@400;500;600&display=swap"
+        rel="stylesheet"
+    >
+
     <link
         rel="stylesheet"
         href="./style.css"
@@ -75,6 +84,18 @@
         </div>
 
     </section>
+
+
+    <!-- =========================
+         TRANSICIÓN
+    ========================== -->
+
+    <div
+        id="transitionOverlay"
+        class="transition-overlay"
+    >
+        <div class="transition-line"></div>
+    </div>
 
 
     <!-- =========================
@@ -204,7 +225,7 @@
             </div>
 
             <p class="pending">
-                3 DE OCTUBRE DE 2026 · 14:00
+                3 DE OCTUBRE DE 2026 · 14:00 · ECUADOR
             </p>
 
         </section>
@@ -221,13 +242,71 @@
             </p>
 
 
+            <!-- FECHA -->
+
             <div class="detail-card">
 
                 <div class="detail-icon">
-                    03
+
+                    <svg
+                        viewBox="0 0 24 24"
+                        aria-hidden="true"
+                    >
+                        <rect
+                            x="3"
+                            y="5"
+                            width="18"
+                            height="16"
+                            rx="2"
+                        ></rect>
+
+                        <line
+                            x1="8"
+                            y1="3"
+                            x2="8"
+                            y2="7"
+                        ></line>
+
+                        <line
+                            x1="16"
+                            y1="3"
+                            x2="16"
+                            y2="7"
+                        ></line>
+
+                        <line
+                            x1="3"
+                            y1="10"
+                            x2="21"
+                            y2="10"
+                        ></line>
+
+                        <line
+                            x1="8"
+                            y1="14"
+                            x2="8"
+                            y2="14"
+                        ></line>
+
+                        <line
+                            x1="12"
+                            y1="14"
+                            x2="12"
+                            y2="14"
+                        ></line>
+
+                        <line
+                            x1="16"
+                            y1="14"
+                            x2="16"
+                            y2="14"
+                        ></line>
+
+                    </svg>
+
                 </div>
 
-                <div>
+                <div class="detail-content">
 
                     <h3>
                         FECHA
@@ -242,13 +321,32 @@
             </div>
 
 
+            <!-- HORA -->
+
             <div class="detail-card">
 
                 <div class="detail-icon">
-                    14
+
+                    <svg
+                        viewBox="0 0 24 24"
+                        aria-hidden="true"
+                    >
+
+                        <circle
+                            cx="12"
+                            cy="12"
+                            r="9"
+                        ></circle>
+
+                        <polyline
+                            points="12,7 12,12 16,14"
+                        ></polyline>
+
+                    </svg>
+
                 </div>
 
-                <div>
+                <div class="detail-content">
 
                     <h3>
                         HORA
@@ -263,13 +361,32 @@
             </div>
 
 
+            <!-- LUGAR -->
+
             <div class="detail-card">
 
                 <div class="detail-icon">
-                    Q
+
+                    <svg
+                        viewBox="0 0 24 24"
+                        aria-hidden="true"
+                    >
+
+                        <path
+                            d="M20 10c0 5-8 11-8 11S4 15 4 10a8 8 0 1 1 16 0Z"
+                        ></path>
+
+                        <circle
+                            cx="12"
+                            cy="10"
+                            r="2.5"
+                        ></circle>
+
+                    </svg>
+
                 </div>
 
-                <div>
+                <div class="detail-content">
 
                     <h3>
                         LUGAR
@@ -279,18 +396,52 @@
                         Quinta La Veranera
                     </p>
 
+                    <a
+                        id="mapButton"
+                        class="map-button"
+                        href="#"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        hidden
+                    >
+                        VER UBICACIÓN
+                    </a>
+
                 </div>
 
             </div>
 
 
+            <!-- CIUDAD -->
+
             <div class="detail-card">
 
                 <div class="detail-icon">
-                    CU
+
+                    <svg
+                        viewBox="0 0 24 24"
+                        aria-hidden="true"
+                    >
+
+                        <circle
+                            cx="12"
+                            cy="12"
+                            r="9"
+                        ></circle>
+
+                        <path
+                            d="M3 12h18"
+                        ></path>
+
+                        <path
+                            d="M12 3c3 3 4 6 4 9s-1 6-4 9c-3-3-4-6-4-9s1-6 4-9Z"
+                        ></path>
+
+                    </svg>
+
                 </div>
 
-                <div>
+                <div class="detail-content">
 
                     <h3>
                         CIUDAD
