@@ -18,7 +18,6 @@ document.addEventListener("DOMContentLoaded", () => {
     const musicButton =
         document.getElementById("musicButton");
 
-
     const days =
         document.getElementById("days");
 
@@ -31,10 +30,8 @@ document.addEventListener("DOMContentLoaded", () => {
     const seconds =
         document.getElementById("seconds");
 
-
     const mapButton =
         document.getElementById("mapButton");
-
 
     let musicPlaying = false;
 
@@ -43,13 +40,9 @@ document.addEventListener("DOMContentLoaded", () => {
 
     /* =========================
        GOOGLE MAPS
-       
-       CUANDO TENGAS EL ENLACE:
-       reemplaza el contenido de mapUrl.
     ========================== */
 
     const mapUrl = "";
-
 
     if (mapUrl.trim() !== "") {
 
@@ -72,18 +65,10 @@ document.addEventListener("DOMContentLoaded", () => {
 
         invitationOpened = true;
 
-
-        /*
-         * Primero aparece la transición.
-         */
-
         transitionOverlay.classList.add("active");
 
 
-        /*
-         * Comenzamos la música inmediatamente
-         * después de la interacción del usuario.
-         */
+        /* MÚSICA */
 
         try {
 
@@ -108,10 +93,7 @@ document.addEventListener("DOMContentLoaded", () => {
         }
 
 
-        /*
-         * Después de la transición,
-         * mostramos la invitación.
-         */
+        /* CAMBIO DE PANTALLA */
 
         setTimeout(() => {
 
@@ -121,20 +103,13 @@ document.addEventListener("DOMContentLoaded", () => {
 
             musicButton.classList.add("visible");
 
-
             window.scrollTo({
                 top: 0,
                 behavior: "instant"
             });
 
-
         }, 450);
 
-
-        /*
-         * Retiramos la pantalla de bienvenida
-         * completamente después de la animación.
-         */
 
         setTimeout(() => {
 
@@ -186,15 +161,18 @@ document.addEventListener("DOMContentLoaded", () => {
 
     /* =========================
        CUENTA REGRESIVA
-       
-       3 DE OCTUBRE DE 2026
+       3 OCTUBRE 2026
        14:00 ECUADOR
-       
-       Ecuador continental = UTC-5
-       
-       14:00 Ecuador
-       = 19:00 UTC
     ========================== */
+
+    /*
+        Ecuador continental:
+        UTC-5
+
+        3 de octubre de 2026
+        14:00 Ecuador
+        = 19:00 UTC
+    */
 
     const eventDate =
         Date.UTC(
@@ -212,7 +190,6 @@ document.addEventListener("DOMContentLoaded", () => {
         const now =
             Date.now();
 
-
         const difference =
             eventDate - now;
 
@@ -228,6 +205,7 @@ document.addEventListener("DOMContentLoaded", () => {
             seconds.textContent = "00";
 
             return;
+
         }
 
 
