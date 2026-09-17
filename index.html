@@ -3,7 +3,6 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
     <title>Joel Rene Lojano Barrera | 50 años</title>
 
     <link rel="stylesheet" href="./style.css">
@@ -12,46 +11,36 @@
 <body>
 
     <!-- =========================
-         PANTALLA DE BIENVENIDA
+         BIENVENIDA
     ========================== -->
 
     <section id="welcome" class="welcome">
 
-        <div class="gold-circle"></div>
-
         <div class="welcome-content">
 
-            <p class="small-title">
-                CELEBRACIÓN ESPECIAL
-            </p>
-
-            <div class="big-number">
+            <div class="welcome-number">
                 50
             </div>
 
-            <h1>
-                Joel Rene<br>
-                <span>Lojano Barrera</span>
+            <p class="welcome-small">
+                UNA CELEBRACIÓN ESPECIAL
+            </p>
+
+            <h1 class="welcome-name">
+                JOEL RENE
             </h1>
 
-            <div class="line"></div>
-
-            <p class="age">
-                50 AÑOS
+            <p class="welcome-lastname">
+                LOJANO BARRERA
             </p>
 
-            <p class="phrase">
-                Una vida llena de historias,<br>
-                momentos y recuerdos.
-            </p>
-
-            <button id="openInvitation">
+            <button
+                id="openInvitation"
+                class="open-button"
+                type="button"
+            >
                 ABRIR INVITACIÓN
             </button>
-
-            <p class="location">
-                CUENCA · ECUADOR
-            </p>
 
         </div>
 
@@ -64,7 +53,7 @@
 
     <main id="invitation" class="invitation">
 
-        <!-- FOTO PRINCIPAL -->
+        <!-- FOTO -->
 
         <section class="portrait-section">
 
@@ -88,24 +77,23 @@
         </section>
 
 
-        <!-- PRESENTACIÓN -->
+        <!-- HERO -->
 
-        <section class="hero-section">
+        <section class="hero">
 
-            <p class="section-label">
+            <p class="hero-small">
                 UNA FECHA ESPECIAL
             </p>
 
-            <h2>
+            <h2 class="hero-title">
                 Celebramos<br>
-                <span>50 años</span>
+                50 años
             </h2>
 
-            <p>
-                Queremos compartir contigo una noche
-                especial para celebrar la vida de Joel
-                y todos los momentos que han marcado
-                este camino.
+            <p class="hero-subtitle">
+                Una ocasión especial para compartir,
+                recordar y celebrar junto a las personas
+                que hacen parte de nuestra historia.
             </p>
 
         </section>
@@ -116,36 +104,78 @@
         <section class="countdown-section">
 
             <p class="section-label">
-                FALTA PARA CELEBRAR
+                FALTAN
             </p>
 
             <div class="countdown">
 
-                <div class="time-box">
-                    <strong id="days">--</strong>
-                    <span>DÍAS</span>
+                <div class="countdown-item">
+                    <div id="days" class="countdown-number">
+                        00
+                    </div>
+
+                    <div class="countdown-label">
+                        Días
+                    </div>
                 </div>
 
-                <div class="time-box">
-                    <strong id="hours">--</strong>
-                    <span>HORAS</span>
+
+                <div class="countdown-item">
+                    <div id="hours" class="countdown-number">
+                        00
+                    </div>
+
+                    <div class="countdown-label">
+                        Horas
+                    </div>
                 </div>
 
-                <div class="time-box">
-                    <strong id="minutes">--</strong>
-                    <span>MINUTOS</span>
+
+                <div class="countdown-item">
+                    <div id="minutes" class="countdown-number">
+                        00
+                    </div>
+
+                    <div class="countdown-label">
+                        Minutos
+                    </div>
                 </div>
 
-                <div class="time-box">
-                    <strong id="seconds">--</strong>
-                    <span>SEGUNDOS</span>
+
+                <div class="countdown-item">
+                    <div id="seconds" class="countdown-number">
+                        00
+                    </div>
+
+                    <div class="countdown-label">
+                        Segundos
+                    </div>
                 </div>
 
             </div>
 
-            <p class="pending">
-                5 DE OCTUBRE DE 2026
+        </section>
+
+
+        <!-- FECHA -->
+
+        <section class="date-section">
+
+            <p class="section-label">
+                RESERVA LA FECHA
             </p>
+
+            <div class="date-number">
+                05
+            </div>
+
+            <div class="date-month">
+                OCTUBRE
+            </div>
+
+            <div class="date-year">
+                2026
+            </div>
 
         </section>
 
@@ -158,64 +188,74 @@
                 DETALLES DEL EVENTO
             </p>
 
+            <div class="details-grid">
 
-            <div class="detail-card">
+                <div class="detail-card">
 
-                <div class="detail-icon">
-                    ◆
+                    <div class="detail-icon">
+                        ✦
+                    </div>
+
+                    <div class="detail-title">
+                        Fecha
+                    </div>
+
+                    <div class="detail-text">
+                        5 de octubre<br>
+                        de 2026
+                    </div>
+
                 </div>
 
-                <div>
 
-                    <h3>
-                        FECHA
-                    </h3>
+                <div class="detail-card">
 
-                    <p>
-                        5 de octubre de 2026
-                    </p>
+                    <div class="detail-icon">
+                        ◷
+                    </div>
 
-                </div>
+                    <div class="detail-title">
+                        Hora
+                    </div>
 
-            </div>
-
-
-            <div class="detail-card">
-
-                <div class="detail-icon">
-                    ◆
-                </div>
-
-                <div>
-
-                    <h3>
-                        HORA
-                    </h3>
-
-                    <p>
+                    <div class="detail-text">
                         Por confirmar
-                    </p>
+                    </div>
 
                 </div>
 
-            </div>
 
+                <div class="detail-card">
 
-            <div class="detail-card">
+                    <div class="detail-icon">
+                        ⌖
+                    </div>
 
-                <div class="detail-icon">
-                    ◆
+                    <div class="detail-title">
+                        Lugar
+                    </div>
+
+                    <div class="detail-text">
+                        Cuenca,<br>
+                        Ecuador
+                    </div>
+
                 </div>
 
-                <div>
 
-                    <h3>
-                        LUGAR
-                    </h3>
+                <div class="detail-card">
 
-                    <p>
-                        Cuenca, Ecuador
-                    </p>
+                    <div class="detail-icon">
+                        50
+                    </div>
+
+                    <div class="detail-title">
+                        Celebración
+                    </div>
+
+                    <div class="detail-text">
+                        50 años
+                    </div>
 
                 </div>
 
@@ -228,31 +268,23 @@
 
         <section class="rsvp-section">
 
-            <div class="rsvp-box">
+            <p class="section-label">
+                CONFIRMACIÓN
+            </p>
 
-                <p class="section-label">
-                    CONFIRMA TU ASISTENCIA
-                </p>
+            <p class="rsvp-text">
+                Será un gusto compartir
+                este momento contigo.
+            </p>
 
-                <h2>
-                    Nos encantaría<br>
-                    <span>contar contigo</span>
-                </h2>
-
-                <p>
-                    Confirma tu asistencia por WhatsApp.
-                </p>
-
-                <a
-                    class="whatsapp-button"
-                    href="https://wa.me/593988865604?text=Hola%2C%20quiero%20confirmar%20mi%20asistencia%20a%20la%20celebraci%C3%B3n%20de%20los%2050%20a%C3%B1os%20de%20Joel%20Rene%20Lojano%20Barrera."
-                    target="_blank"
-                    rel="noopener noreferrer"
-                >
-                    CONFIRMAR ASISTENCIA
-                </a>
-
-            </div>
+            <a
+                class="whatsapp-button"
+                href="https://wa.me/593988865604?text=Hola%2C%20quiero%20confirmar%20mi%20asistencia%20a%20la%20celebraci%C3%B3n%20de%20los%2050%20a%C3%B1os%20de%20Joel%20Rene%20Lojano%20Barrera."
+                target="_blank"
+                rel="noopener noreferrer"
+            >
+                CONFIRMAR ASISTENCIA
+            </a>
 
         </section>
 
@@ -261,39 +293,40 @@
 
         <section class="final-section">
 
-            <div class="final-number">
-                50
+            <div class="final-content">
+
+                <div class="final-number">
+                    50
+                </div>
+
+                <h2 class="final-title">
+                    ¡Te esperamos!
+                </h2>
+
+                <p class="final-text">
+                    5 DE OCTUBRE DE 2026 · CUENCA, ECUADOR
+                </p>
+
             </div>
-
-            <h2>
-                Joel Rene<br>
-                Lojano Barrera
-            </h2>
-
-            <div class="line"></div>
-
-            <p>
-                Gracias por ser parte<br>
-                de este momento especial.
-            </p>
 
         </section>
 
     </main>
 
 
-    <!-- =========================
-         REPRODUCTOR DE MÚSICA
-    ========================== -->
+    <!-- BOTÓN DE MÚSICA -->
 
     <button
         id="musicButton"
         class="music-button"
+        type="button"
         aria-label="Controlar música"
     >
         ♪
     </button>
 
+
+    <!-- MÚSICA -->
 
     <audio
         id="music"
