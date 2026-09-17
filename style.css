@@ -1,13 +1,18 @@
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Montserrat:wght@400;500;600&display=swap');
+
+
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
+
 html {
     scroll-behavior: smooth;
     overflow-x: hidden;
 }
+
 
 body {
     width: 100%;
@@ -16,14 +21,15 @@ body {
     background: #090909;
     color: #f5f1e8;
 
-    font-family: Georgia, "Times New Roman", serif;
+    font-family: "Montserrat", Arial, Helvetica, sans-serif;
 
     overflow-x: hidden;
 }
 
+
 button,
 a {
-    font-family: inherit;
+    font-family: "Montserrat", Arial, Helvetica, sans-serif;
 }
 
 
@@ -52,8 +58,26 @@ a {
             #090909 70%
         );
 
-    padding: 40px 24px;
+    padding: 35px 24px;
+
+    opacity: 1;
+
+    transform: scale(1);
+
+    transition:
+        opacity 0.7s ease,
+        transform 0.8s ease;
 }
+
+
+.welcome.leaving {
+    opacity: 0;
+
+    transform: scale(1.025);
+
+    pointer-events: none;
+}
+
 
 .welcome::before {
     content: "";
@@ -66,6 +90,7 @@ a {
 
     pointer-events: none;
 }
+
 
 .gold-circle {
     position: absolute;
@@ -83,6 +108,7 @@ a {
     pointer-events: none;
 }
 
+
 .welcome-content {
     position: relative;
     z-index: 2;
@@ -92,25 +118,28 @@ a {
 
     text-align: center;
 
-    padding: 20px;
+    padding: 15px;
 }
+
 
 .small-title,
 .section-label {
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: "Montserrat", Arial, Helvetica, sans-serif;
 
-    font-size: 11px;
+    font-size: 10px;
 
     letter-spacing: 4px;
 
     color: #c9a657;
 
-    font-weight: bold;
+    font-weight: 600;
 }
 
+
 .small-title {
-    margin-bottom: 12px;
+    margin-bottom: 10px;
 }
+
 
 .big-number {
     position: absolute;
@@ -120,7 +149,7 @@ a {
 
     transform: translate(-50%, -50%);
 
-    font-family: Georgia, serif;
+    font-family: "Cormorant Garamond", Georgia, serif;
 
     font-size: clamp(180px, 55vw, 330px);
 
@@ -133,21 +162,26 @@ a {
     user-select: none;
 }
 
+
 .welcome h1 {
-    font-size: clamp(42px, 11vw, 72px);
+    font-family: "Cormorant Garamond", Georgia, serif;
 
-    line-height: 0.95;
+    font-size: clamp(48px, 12vw, 76px);
 
-    font-weight: normal;
+    line-height: 0.88;
 
-    letter-spacing: -2px;
+    font-weight: 500;
 
-    margin-bottom: 20px;
+    letter-spacing: -1px;
+
+    margin-bottom: 18px;
 }
+
 
 .welcome h1 span {
     color: #c9a657;
 }
+
 
 .line {
     width: 55px;
@@ -155,30 +189,35 @@ a {
 
     background: #c9a657;
 
-    margin: 20px auto;
+    margin: 18px auto;
 }
 
-.age {
-    font-family: Arial, Helvetica, sans-serif;
 
-    font-size: 13px;
+.age {
+    font-family: "Montserrat", Arial, Helvetica, sans-serif;
+
+    font-size: 11px;
 
     letter-spacing: 6px;
 
     color: #d9d1bf;
 
-    margin-bottom: 22px;
+    margin-bottom: 18px;
 }
+
 
 .phrase {
     color: #aaa49a;
 
-    font-size: 15px;
+    font-size: 13px;
 
-    line-height: 1.7;
+    line-height: 1.6;
 
-    margin-bottom: 30px;
+    max-width: 350px;
+
+    margin: 0 auto 25px;
 }
+
 
 #openInvitation {
     border: 1px solid #c9a657;
@@ -187,11 +226,11 @@ a {
 
     color: #f5f1e8;
 
-    padding: 16px 28px;
+    padding: 14px 25px;
 
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: "Montserrat", Arial, Helvetica, sans-serif;
 
-    font-size: 11px;
+    font-size: 10px;
 
     letter-spacing: 3px;
 
@@ -203,22 +242,25 @@ a {
         transform 0.2s ease;
 }
 
+
 #openInvitation:hover {
     background: #c9a657;
 
     color: #090909;
 }
 
+
 #openInvitation:active {
     transform: scale(0.97);
 }
 
+
 .location {
-    margin-top: 24px;
+    margin-top: 20px;
 
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: "Montserrat", Arial, Helvetica, sans-serif;
 
-    font-size: 10px;
+    font-size: 9px;
 
     letter-spacing: 3px;
 
@@ -227,14 +269,76 @@ a {
 
 
 /* =========================
+   TRANSICIÓN
+========================= */
+
+.transition-overlay {
+    position: fixed;
+
+    inset: 0;
+
+    background:
+        radial-gradient(
+            circle at center,
+            rgba(201, 166, 87, 0.12),
+            #090909 65%
+        );
+
+    z-index: 999;
+
+    opacity: 0;
+
+    visibility: hidden;
+
+    pointer-events: none;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    transition:
+        opacity 0.45s ease,
+        visibility 0.45s ease;
+}
+
+
+.transition-overlay.active {
+    opacity: 1;
+
+    visibility: visible;
+}
+
+
+.transition-line {
+    width: 0;
+    height: 1px;
+
+    background: #c9a657;
+
+    box-shadow:
+        0 0 18px rgba(201, 166, 87, 0.4);
+
+    transition: width 0.5s ease;
+}
+
+
+.transition-overlay.active .transition-line {
+    width: 80px;
+}
+
+
+/* =========================
    INVITACIÓN
 ========================= */
 
 .invitation {
-    display: none;
+    display: block;
 
     width: 100%;
     max-width: 100%;
+
+    min-height: 100vh;
 
     background:
         linear-gradient(
@@ -245,10 +349,31 @@ a {
         );
 
     overflow-x: hidden;
+
+    opacity: 0;
+
+    visibility: hidden;
+
+    transform: translateY(18px);
+
+    transition:
+        opacity 0.8s ease,
+        transform 0.8s ease,
+        visibility 0s linear 0.8s;
 }
 
+
 .invitation.active {
-    display: block;
+    opacity: 1;
+
+    visibility: visible;
+
+    transform: translateY(0);
+
+    transition:
+        opacity 0.8s ease,
+        transform 0.8s ease,
+        visibility 0s;
 }
 
 
@@ -266,22 +391,39 @@ a {
 
     text-align: center;
 
-    padding: 55px 28px 40px;
+    padding: 45px 28px 32px;
 
     overflow: hidden;
 }
 
+
 .portrait-frame {
     position: relative;
 
-    width: min(65vw, 330px);
+    width: min(60vw, 300px);
 
     aspect-ratio: 3 / 4;
 
     padding: 7px;
 
     border: 1px solid #c9a657;
+
+    opacity: 0;
+
+    transform: translateY(15px);
+
+    transition:
+        opacity 0.8s ease 0.25s,
+        transform 0.8s ease 0.25s;
 }
+
+
+.invitation.active .portrait-frame {
+    opacity: 1;
+
+    transform: translateY(0);
+}
+
 
 .portrait-frame::before {
     content: "";
@@ -297,6 +439,7 @@ a {
     z-index: 2;
 }
 
+
 .portrait-frame img {
     display: block;
 
@@ -305,6 +448,7 @@ a {
 
     object-fit: cover;
 }
+
 
 .portrait-number {
     position: absolute;
@@ -325,17 +469,20 @@ a {
 
     color: #c9a657;
 
-    font-size: 25px;
+    font-family: "Cormorant Garamond", Georgia, serif;
+
+    font-size: 28px;
 
     z-index: 3;
 }
 
+
 .portrait-caption {
-    margin-top: 20px;
+    margin-top: 17px;
 
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: "Montserrat", Arial, Helvetica, sans-serif;
 
-    font-size: 9px;
+    font-size: 8px;
 
     letter-spacing: 3px;
 
@@ -358,29 +505,35 @@ a {
 
     margin: auto;
 
-    padding: 55px 28px;
+    padding: 42px 28px;
 }
+
 
 .hero-section {
     text-align: center;
 }
 
+
 .hero-section h2,
 .rsvp-box h2 {
 
-    font-size: clamp(38px, 10vw, 62px);
+    font-family: "Cormorant Garamond", Georgia, serif;
 
-    line-height: 1;
+    font-size: clamp(42px, 10vw, 62px);
 
-    font-weight: normal;
+    line-height: 0.9;
 
-    margin: 14px 0;
+    font-weight: 500;
+
+    margin: 12px 0 15px;
 }
+
 
 .hero-section h2 span,
 .rsvp-box h2 span {
     color: #c9a657;
 }
+
 
 .hero-section > p:last-child {
     max-width: 480px;
@@ -389,9 +542,9 @@ a {
 
     color: #aaa49a;
 
-    font-size: 16px;
+    font-size: 13px;
 
-    line-height: 1.6;
+    line-height: 1.65;
 }
 
 
@@ -405,20 +558,25 @@ a {
     border-top: 1px solid rgba(255, 255, 255, 0.06);
 
     border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+
+    padding-top: 38px;
+    padding-bottom: 38px;
 }
+
 
 .countdown {
     display: grid;
 
     grid-template-columns: repeat(4, 1fr);
 
-    gap: 8px;
+    gap: 7px;
 
-    margin-top: 20px;
+    margin-top: 17px;
 }
 
+
 .time-box {
-    padding: 14px 5px;
+    padding: 12px 4px;
 
     border: 1px solid rgba(201, 166, 87, 0.18);
 
@@ -427,40 +585,47 @@ a {
     min-width: 0;
 }
 
+
 .time-box strong {
     display: block;
 
-    font-size: 28px;
+    font-family: "Cormorant Garamond", Georgia, serif;
+
+    font-size: 30px;
+
+    line-height: 1;
 
     color: #c9a657;
 
-    font-weight: normal;
+    font-weight: 500;
 }
+
 
 .time-box span {
     display: block;
 
-    margin-top: 7px;
+    margin-top: 6px;
 
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: "Montserrat", Arial, Helvetica, sans-serif;
 
-    font-size: 8px;
+    font-size: 7px;
 
     letter-spacing: 1px;
 
     color: #777;
 }
 
+
 .pending {
-    margin-top: 16px;
+    margin-top: 13px;
 
     color: #777;
 
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: "Montserrat", Arial, Helvetica, sans-serif;
 
-    font-size: 10px;
+    font-size: 8px;
 
-    letter-spacing: 2px;
+    letter-spacing: 1.5px;
 }
 
 
@@ -470,27 +635,32 @@ a {
 
 .details-section {
     text-align: center;
+
+    padding-top: 42px;
+    padding-bottom: 35px;
 }
+
 
 .detail-card {
     display: flex;
 
     align-items: center;
 
-    gap: 20px;
+    gap: 18px;
 
     text-align: left;
 
-    padding: 16px 5px;
+    padding: 15px 4px;
 
     border-bottom: 1px solid rgba(255, 255, 255, 0.07);
 
     min-width: 0;
 }
 
+
 .detail-icon {
-    width: 42px;
-    height: 42px;
+    width: 43px;
+    height: 43px;
 
     display: flex;
     align-items: center;
@@ -500,27 +670,92 @@ a {
 
     color: #c9a657;
 
-    font-size: 12px;
-
     flex-shrink: 0;
 }
 
-.detail-card h3 {
-    font-family: Arial, Helvetica, sans-serif;
 
-    font-size: 10px;
+.detail-icon svg {
+    width: 20px;
+    height: 20px;
+
+    fill: none;
+
+    stroke: currentColor;
+
+    stroke-width: 1.4;
+
+    stroke-linecap: round;
+
+    stroke-linejoin: round;
+}
+
+
+.detail-content {
+    min-width: 0;
+
+    flex: 1;
+}
+
+
+.detail-card h3 {
+    font-family: "Montserrat", Arial, Helvetica, sans-serif;
+
+    font-size: 9px;
 
     letter-spacing: 3px;
 
     color: #c9a657;
 
-    margin-bottom: 7px;
+    margin-bottom: 5px;
+
+    font-weight: 600;
 }
+
 
 .detail-card p {
     color: #aaa49a;
 
-    font-size: 16px;
+    font-family: "Cormorant Garamond", Georgia, serif;
+
+    font-size: 20px;
+
+    line-height: 1.1;
+}
+
+
+/* =========================
+   BOTÓN MAPA
+========================= */
+
+.map-button {
+    display: inline-block;
+
+    margin-top: 9px;
+
+    padding: 8px 13px;
+
+    border: 1px solid rgba(201, 166, 87, 0.55);
+
+    color: #c9a657;
+
+    text-decoration: none;
+
+    font-family: "Montserrat", Arial, Helvetica, sans-serif;
+
+    font-size: 8px;
+
+    letter-spacing: 1.5px;
+
+    transition:
+        background 0.3s ease,
+        color 0.3s ease;
+}
+
+
+.map-button:hover {
+    background: #c9a657;
+
+    color: #090909;
 }
 
 
@@ -529,14 +764,15 @@ a {
 ========================= */
 
 .rsvp-section {
-    padding-top: 35px;
-    padding-bottom: 35px;
+    padding-top: 28px;
+    padding-bottom: 30px;
 }
+
 
 .rsvp-box {
     text-align: center;
 
-    padding: 45px 25px;
+    padding: 38px 22px;
 
     border: 1px solid rgba(201, 166, 87, 0.3);
 
@@ -548,13 +784,17 @@ a {
         );
 }
 
+
 .rsvp-box > p:not(.section-label) {
     color: #aaa49a;
 
+    font-size: 13px;
+
     line-height: 1.6;
 
-    margin-bottom: 24px;
+    margin-bottom: 21px;
 }
+
 
 .whatsapp-button {
     display: inline-block;
@@ -565,11 +805,11 @@ a {
 
     color: #f5f1e8;
 
-    padding: 16px 24px;
+    padding: 14px 22px;
 
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: "Montserrat", Arial, Helvetica, sans-serif;
 
-    font-size: 10px;
+    font-size: 9px;
 
     letter-spacing: 2px;
 
@@ -577,6 +817,7 @@ a {
         background 0.3s ease,
         color 0.3s ease;
 }
+
 
 .whatsapp-button:hover {
     background: #c9a657;
@@ -590,7 +831,7 @@ a {
 ========================= */
 
 .final-section {
-    min-height: 55vh;
+    min-height: 45vh;
 
     display: flex;
 
@@ -602,38 +843,49 @@ a {
 
     text-align: center;
 
-    padding-top: 50px;
-    padding-bottom: 50px;
+    padding-top: 35px;
+    padding-bottom: 45px;
 }
 
+
 .final-number {
-    font-size: 130px;
+    font-family: "Cormorant Garamond", Georgia, serif;
+
+    font-size: 125px;
 
     line-height: 1;
 
     color: rgba(201, 166, 87, 0.1);
 
-    margin-bottom: -40px;
+    margin-bottom: -37px;
 }
+
 
 .final-section h2 {
     position: relative;
 
-    font-size: 42px;
+    font-family: "Cormorant Garamond", Georgia, serif;
+
+    font-size: 46px;
 
     line-height: 1;
 
-    font-weight: normal;
+    font-weight: 500;
 }
+
 
 .final-section p {
     color: #888;
 
-    font-size: 13px;
+    font-family: "Montserrat", Arial, Helvetica, sans-serif;
+
+    font-size: 9px;
+
+    letter-spacing: 1px;
 
     line-height: 1.7;
 
-    margin-top: 12px;
+    margin-top: 10px;
 }
 
 
@@ -647,8 +899,8 @@ a {
     right: 18px;
     bottom: 18px;
 
-    width: 48px;
-    height: 48px;
+    width: 46px;
+    height: 46px;
 
     border-radius: 50%;
 
@@ -658,7 +910,7 @@ a {
 
     color: #c9a657;
 
-    font-size: 20px;
+    font-size: 18px;
 
     z-index: 100;
 
@@ -666,6 +918,7 @@ a {
 
     display: none;
 }
+
 
 .music-button.visible {
     display: block;
@@ -680,7 +933,7 @@ a {
 
     from {
         opacity: 0;
-        transform: translateY(20px);
+        transform: translateY(15px);
     }
 
     to {
@@ -690,9 +943,46 @@ a {
 
 }
 
+
 .welcome-content > * {
-    animation: fadeIn 1s ease both;
+    animation: fadeIn 0.8s ease both;
 }
+
+
+.welcome-content .small-title {
+    animation-delay: 0.05s;
+}
+
+
+.welcome-content h1 {
+    animation-delay: 0.15s;
+}
+
+
+.welcome-content .line {
+    animation-delay: 0.25s;
+}
+
+
+.welcome-content .age {
+    animation-delay: 0.3s;
+}
+
+
+.welcome-content .phrase {
+    animation-delay: 0.4s;
+}
+
+
+.welcome-content #openInvitation {
+    animation-delay: 0.5s;
+}
+
+
+.welcome-content .location {
+    animation-delay: 0.6s;
+}
+
 
 .welcome-content .big-number {
     animation: none;
@@ -706,12 +996,14 @@ a {
 @media (min-width: 700px) {
 
     .welcome {
-        padding: 60px;
+        padding: 50px;
     }
+
 
     .welcome-content {
         max-width: 650px;
     }
+
 
     .hero-section,
     .countdown-section,
@@ -722,19 +1014,80 @@ a {
         padding-right: 50px;
     }
 
+
     .portrait-frame {
-        width: 330px;
+        width: 300px;
     }
+
 
     .hero-section,
     .countdown-section,
     .details-section {
-        padding-top: 60px;
-        padding-bottom: 60px;
+        padding-top: 48px;
+        padding-bottom: 48px;
     }
 
+
     .final-section {
-        min-height: 60vh;
+        min-height: 50vh;
+    }
+
+}
+
+
+/* =========================
+   MÓVILES PEQUEÑOS
+========================= */
+
+@media (max-width: 380px) {
+
+    .welcome {
+        padding-left: 18px;
+        padding-right: 18px;
+    }
+
+
+    .welcome h1 {
+        font-size: 43px;
+    }
+
+
+    .portrait-section {
+        padding-top: 38px;
+    }
+
+
+    .portrait-frame {
+        width: 62vw;
+    }
+
+
+    .hero-section,
+    .countdown-section,
+    .details-section,
+    .rsvp-section {
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+
+
+    .detail-card {
+        gap: 14px;
+    }
+
+
+    .detail-card p {
+        font-size: 18px;
+    }
+
+
+    .time-box strong {
+        font-size: 27px;
+    }
+
+
+    .time-box span {
+        font-size: 6px;
     }
 
 }
