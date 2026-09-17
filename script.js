@@ -1,14 +1,25 @@
-document.addEventListener("DOMContentLoaded", function () {
+document.addEventListener("DOMContentLoaded", () => {
 
-    const openButton = document.getElementById("openInvitation");
     const welcome = document.getElementById("welcome");
     const invitation = document.getElementById("invitation");
+    const openButton = document.getElementById("openInvitation");
+
     const music = document.getElementById("music");
     const musicButton = document.getElementById("musicButton");
 
+    const days = document.getElementById("days");
+    const hours = document.getElementById("hours");
+    const minutes = document.getElementById("minutes");
+    const seconds = document.getElementById("seconds");
+
     let musicPlaying = false;
 
-    openButton.addEventListener("click", function () {
+
+    /* =========================
+       ABRIR INVITACIÓN
+    ========================== */
+
+    openButton.addEventListener("click", async () => {
 
         welcome.style.display = "none";
 
@@ -16,28 +27,43 @@ document.addEventListener("DOMContentLoaded", function () {
 
         musicButton.classList.add("visible");
 
-        window.scrollTo(0, 0);
+        window.scrollTo({
+            top: 0,
+            behavior: "smooth"
+        });
 
-        music.currentTime = 0;
 
-        music.play()
-            .then(function () {
+        /* Intentar iniciar música */
 
-                musicPlaying = true;
+        try {
 
-                musicButton.textContent = "Ⅱ";
+            music.currentTime = 0;
 
-            })
-            .catch(function (error) {
+            await music.play();
 
-                console.log("No se pudo iniciar la música:", error);
+            musicPlaying = true;
 
-            });
+            musicButton.textContent = "Ⅱ";
+
+        } catch (error) {
+
+            console.log(
+                "El navegador no permitió iniciar la música automáticamente."
+            );
+
+            musicPlaying = false;
+
+            musicButton.textContent = "♪";
+        }
 
     });
 
 
-    musicButton.addEventListener("click", function () {
+    /* =========================
+       CONTROL DE MÚSICA
+    ========================== */
+
+    musicButton.addEventListener("click", async () => {
 
         if (musicPlaying) {
 
@@ -49,82 +75,89 @@ document.addEventListener("DOMContentLoaded", function () {
 
         } else {
 
-            music.play()
-                .then(function () {
+            try {
 
-                    musicPlaying = true;
+                await music.play();
 
-                    musicButton.textContent = "Ⅱ";
+                musicPlaying = true;
 
-                })
-                .catch(function (error) {
+                musicButton.textContent = "Ⅱ";
 
-                    console.log("No se pudo reproducir la música:", error);
+            } catch (error) {
 
-                });
+                console.log(
+                    "No se pudo reproducir la música."
+                );
+
+            }
 
         }
 
     });
 
 
-    const eventDate = new Date("2026-10-05T00:00:00");
+    /* =========================
+       CUENTA REGRESIVA
+    ========================== */
+
+    const eventDate = new Date(
+        "2026-10-05T00:00:00"
+    );
 
 
     function updateCountdown() {
 
         const now = new Date();
 
-        const difference = eventDate - now;
+        const difference =
+            eventDate.getTime() - now.getTime();
 
 
         if (difference <= 0) {
 
-            document.getElementById("days").textContent = "00";
-            document.getElementById("hours").textContent = "00";
-            document.getElementById("minutes").textContent = "00";
-            document.getElementById("seconds").textContent = "00";
+            days.textContent = "00";
+            hours.textContent = "00";
+            minutes.textContent = "00";
+            seconds.textContent = "00";
 
             return;
-
         }
 
 
         const totalSeconds =
             Math.floor(difference / 1000);
 
+        const totalMinutes =
+            Math.floor(totalSeconds / 60);
 
-        const daysValue =
-            Math.floor(totalSeconds / 86400);
+        const totalHours =
+            Math.floor(totalMinutes / 60);
 
-
-        const hoursValue =
-            Math.floor((totalSeconds % 86400) / 3600);
-
-
-        const minutesValue =
-            Math.floor((totalSeconds % 3600) / 60);
+        const totalDays =
+            Math.floor(totalHours / 24);
 
 
-        const secondsValue =
+        const remainingHours =
+            totalHours % 24;
+
+        const remainingMinutes =
+            totalMinutes % 60;
+
+        const remainingSeconds =
             totalSeconds % 60;
 
 
-        document.getElementById("days").textContent =
-            String(daysValue).padStart(2, "0");
+        days.textContent =
+            String(totalDays).padStart(2, "0");
 
+        hours.textContent =
+            String(remainingHours).padStart(2, "0");
 
-        document.getElementById("hours").textContent =
-            String(hoursValue).padStart(2, "0");
+        minutes.textContent =
+            String(remainingMinutes).padStart(2, "0");
 
-
-        document.getElementById("minutes").textContent =
-            String(minutesValue).padStart(2, "0");
-
-
-        document.getElementById("seconds").textContent =
-            String(secondsValue).padStart(2, "0");
-
+        seconds.textContent =
+            String(remainingSeconds).padStart(2, "0");
     }
 
 
