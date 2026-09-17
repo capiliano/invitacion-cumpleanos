@@ -38,11 +38,10 @@ document.addEventListener("DOMContentLoaded", () => {
     let invitationOpened = false;
 
 
-    /* =========================
-       GOOGLE MAPS
-    ========================== */
+    /* GOOGLE MAPS */
 
-    const mapUrl = "";
+    const mapUrl =
+        "https://maps.app.goo.gl/2pxHpF2r4CRKRbE3A?g_st=ic";
 
     if (mapUrl.trim() !== "") {
 
@@ -53,9 +52,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
 
-    /* =========================
-       ABRIR INVITACIÓN
-    ========================== */
+    /* ABRIR INVITACIÓN */
 
     openButton.addEventListener("click", async () => {
 
@@ -122,9 +119,7 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
 
-    /* =========================
-       CONTROL DE MÚSICA
-    ========================== */
+    /* CONTROL DE MÚSICA */
 
     musicButton.addEventListener("click", async () => {
 
@@ -159,19 +154,9 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
 
-    /* =========================
-       CUENTA REGRESIVA
+    /* CUENTA REGRESIVA
        3 OCTUBRE 2026
        14:00 ECUADOR
-    ========================== */
-
-    /*
-        Ecuador continental:
-        UTC-5
-
-        3 de octubre de 2026
-        14:00 Ecuador
-        = 19:00 UTC
     */
 
     const eventDate =
